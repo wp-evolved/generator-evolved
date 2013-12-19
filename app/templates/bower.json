@@ -1,0 +1,15 @@
+{
+  "name": "<%= props.projName %>",
+  "shortName": "<%= props.projShortName %>",
+  "author": {
+    "name": "<%= props.authorName %>",
+    "url": "<%= props.authorURI %>"
+  },
+  "description": "<%= props.projDescription %>",
+  "version": "<%= props.projVersion %>",
+  "dependencies": {
+    "genesis-wordpress": "~0.2.36",
+    "bourbon": "latest",
+    "neat": "latest"
+  }
+}
