@@ -1,4 +1,4 @@
-# generator-genesis-theme [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-genesis-theme.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-genesis-theme)
+# generator-theme [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-theme.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-theme)
 
 A generator for [Yeoman](http://yeoman.io).
 

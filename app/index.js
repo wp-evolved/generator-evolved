@@ -5,7 +5,7 @@ var yeoman = require('yeoman-generator');
 //var chalk = require('chalk');
 
 
-var WpThemeGenerator = module.exports = function WpThemeGenerator(args, options, config) {
+var ThemeGenerator = module.exports = function ThemeGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -24,9 +24,9 @@ var WpThemeGenerator = module.exports = function WpThemeGenerator(args, options,
   this.sourceRoot(path.join(__dirname, 'templates'));
 };
 
-util.inherits(WpThemeGenerator, yeoman.generators.Base);
+util.inherits(ThemeGenerator, yeoman.generators.Base);
 
-WpThemeGenerator.prototype.promptForName = function() {
+ThemeGenerator.prototype.promptForName = function() {
   var existing = function() {
     try {
       return this.bower.name;
@@ -44,7 +44,7 @@ WpThemeGenerator.prototype.promptForName = function() {
   });
 };
 
-WpThemeGenerator.prototype.promptForShortName = function() {
+ThemeGenerator.prototype.promptForShortName = function() {
   var existing = function() {
     try {
       return this.bower.shortName;
@@ -62,7 +62,7 @@ WpThemeGenerator.prototype.promptForShortName = function() {
   });
 };
 
-WpThemeGenerator.prototype.promptForAuthorName = function() {
+ThemeGenerator.prototype.promptForAuthorName = function() {
   var existing = function() {
     try {
       return this.bower.author.name;
@@ -79,7 +79,7 @@ WpThemeGenerator.prototype.promptForAuthorName = function() {
   });
 };
 
-WpThemeGenerator.prototype.promptForAuthorURI = function() {
+ThemeGenerator.prototype.promptForAuthorURI = function() {
   var existing = function() {
     try {
       return this.bower.author.url
@@ -96,7 +96,7 @@ WpThemeGenerator.prototype.promptForAuthorURI = function() {
   });
 };
 
-WpThemeGenerator.prototype.promptForDescription = function() {
+ThemeGenerator.prototype.promptForDescription = function() {
   var existing = function() {
     try {
       return this.bower.description;
@@ -113,7 +113,7 @@ WpThemeGenerator.prototype.promptForDescription = function() {
   });
 };
 
-WpThemeGenerator.prototype.promptForVersion = function() {
+ThemeGenerator.prototype.promptForVersion = function() {
   var existing = function() {
     try {
       return this.bower.version;
@@ -130,7 +130,7 @@ WpThemeGenerator.prototype.promptForVersion = function() {
   });
 };
 
-WpThemeGenerator.prototype.promptForWeb = function() {
+ThemeGenerator.prototype.promptForWeb = function() {
   this.prompts.push({
     type: 'text',
     name: 'web',
@@ -139,7 +139,7 @@ WpThemeGenerator.prototype.promptForWeb = function() {
   });
 };
 
-WpThemeGenerator.prototype.ask = function() {
+ThemeGenerator.prototype.ask = function() {
   var done = this.async();
 
   // have Yeoman greet the user.
@@ -153,12 +153,12 @@ WpThemeGenerator.prototype.ask = function() {
 
 };
 
-WpThemeGenerator.prototype.ready = function() {
+ThemeGenerator.prototype.ready = function() {
   this.log.write('\n');
   this.log.info('Here we go!');
 };
 
-WpThemeGenerator.prototype.writeProjectFiles = function() {
+ThemeGenerator.prototype.writeProjectFiles = function() {
   this.log.info('Writing project files...');
 
   this.copy('Gruntfile.js', 'Gruntfile.js');
@@ -170,11 +170,11 @@ WpThemeGenerator.prototype.writeProjectFiles = function() {
   //this.template('README.md', 'README.md');
 };
 
-WpThemeGenerator.prototype.writeThemeFiles = function() {
+ThemeGenerator.prototype.writeThemeFiles = function() {
   this.log.info('Writing theme files...');
 
   this.directory('themes/Genesis-Parent-theme', path.join(this.props.web, 'wp-content/themes/Genesis-Parent-theme'));
   this.directory('themes/Genesis-Child-theme', path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme'));
 };
 
-module.exports = WpThemeGenerator;
+module.exports = ThemeGenerator;

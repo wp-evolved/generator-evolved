@@ -5,8 +5,8 @@
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/jimmynotjim/generator-genesis-theme",
-  "bugs": "https://github.com/jimmynotjim/generator-genesis-theme/issues",
+  "homepage": "https://github.com/jimmynotjim/generator-theme",
+  "bugs": "https://github.com/jimmynotjim/generator-theme/issues",
   "author": {
     "name": "Jimmy Wilson",
     "email": "jimmynotjim@me.com",
@@ -15,7 +15,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jimmynotjim/generator-genesis-theme.git"
+    "url": "git://github.com/jimmynotjim/generator-theme.git"
   },
   "scripts": {
     "test": "mocha"
