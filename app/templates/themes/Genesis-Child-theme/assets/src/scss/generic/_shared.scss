@@ -1,0 +1,57 @@
+/*------------------------------------*\
+    $SHARED
+\*------------------------------------*/
+/**
+ * Where `margin-bottom` is concerned, this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+/**
+ * Base elements
+ */
+ul, ol, dl, p,
+blockquote,
+fieldset,
+address,
+figure,
+table,
+pre,
+/**
+ * Objects and abstractions
+ */
+%sass-margin-bottom,
+.island,
+.media,
+.islet {
+  margin-bottom: pxtoem($base-spacing-unit, $base-font-size);
+
+  .islet &{
+    margin-bottom: pxtoem( ($base-spacing-unit / 2), $base-font-size);
+  }
+}
+
+
+/**
+ * Doubled up `margin-bottom` helper class.
+ */
+.landmark {
+  margin-bottom: pxtoem( (2 * $base-spacing-unit), $base-font-size);
+}
+
+
+/**
+ * `hr` elements only take up a few pixels, so we need to give them special
+ * treatment regarding vertical rhythm.
+ */
+hr {
+  margin-bottom: pxtoem( ($base-spacing-unit - 2px), $base-font-size);
+}
+
+
+/**
+ * Where `padding-left` is concerned we want to try and indent certain elements
+ * by a consistent amount. Define that amount once, here.
+ */
+ul,ol,dd {
+  padding-left: pxtoem(20px, $base-font-size);
+}

@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    $MAIN
+\*------------------------------------*/
+html {
+	background-color: $color-background;
+	color: $color-text;
+	font-size: 100%;
+	font-family: $font-primary;
+	line-height: $line-height-ratio;
+    overflow-y: scroll;
+    min-height: 100%;
+}
+
+body {
+	font-size: pxtoem($base-font-size, 16px);
+}

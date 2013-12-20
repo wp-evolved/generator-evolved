@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    $FUNCTIONS
+\*------------------------------------*/
+/**
+ * Convert px values to em values
+ */
+@function pxtoem($target, $context) {
+	@if $context == ''{
+	    $context: $base-font-size;
+	}
+    @return ($target / $context) + 0em;
+}
+
+
+/**
+ * Convert px values to % values
+ */
+@function pxtoper($target, $context) {
+    @return ($target / $context) * 100%;
+}

@@ -1,0 +1,9 @@
+/*------------------------------------*\
+    $SMALLPRINT
+\*------------------------------------*/
+/**
+ * A series of classes for setting tiny type; for use in smallprint etc.
+ */
+.smallprint {
+    font-size: pxtoem($size-milli, $base-font-size);
+}

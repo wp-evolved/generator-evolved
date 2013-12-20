@@ -1,0 +1,53 @@
+/*------------------------------------*\
+    $HEADINGS
+\*------------------------------------*/
+/**
+ * As per: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+ *
+ * When we define a heading we also define a corresponding class to go with it.
+ * This allows us to apply, say, `class=alpha` to a `h3`; a double-stranded
+ * heading hierarchy.
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-secondary;
+  font-weight: 500;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+}
+
+h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: pxtoem($size-alpha, $base-font-size);
+  margin-bottom: pxtoem($base-spacing-unit, $size-alpha);
+  line-height: 1;
+}
+
+h2 {
+  font-size: pxtoem($size-beta, $base-font-size);
+  margin-bottom: pxtoem($base-spacing-unit, $size-beta);
+}
+
+h3 {
+  font-size: pxtoem($size-gamma, base-font-size);
+  margin-bottom: pxtoem($base-spacing-unit, $size-gamma);
+}
+
+h4 {
+  font-size: pxtoem($size-delta, base-font-size);
+  margin-bottom: pxtoem($base-spacing-unit, $size-delta);
+}
+
+h5 {
+  font-size: pxtoem($size-epsilon, base-font-size);
+  margin-bottom: pxtoem($base-spacing-unit, $size-epsilon);
+}
+
+h6 {
+  font-size: pxtoem($size-zeta, base-font-size);
+  margin-bottom: pxtoem($base-spacing-unit, $size-zeta);
+}

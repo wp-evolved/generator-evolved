@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    $PARAGRAPHS
+\*------------------------------------*/
+/**
+ * The `.lede` class is used to make the introductory text (usually a paragraph)
+ * of a document slightly larger.
+ */
+.lede,
+.lead {
+	font-size: pxtoem( ($base-font-size * 1.125), $base-font-size);
+	margin-bottom: pxtoem( $base-spacing-unit, ($base-font-size * 1.125) );
+}
+
+p {
+	margin-bottom: pxtoem($base-spacing-unit, $base-font-size);
+}

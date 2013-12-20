@@ -1,0 +1,162 @@
+/*------------------------------------*\
+    $NAV
+\*------------------------------------*/
+/**
+ * menu abstraction as per: csswizardry.com/2011/09/the-menu-abstraction
+ * When used on an `ol` or `ul`, this class throws the list into horizontal mode
+ * e.g.:
+ *
+  <ul class="menu">
+    <li><a href="#"">Home</a></li>
+    <li><a href="#"">About</a></li>
+    <li><a href="#"">Portfolio</a></li>
+    <li><a href="#"">Contact</a></li>
+  </ul>
+ *
+ * Demo: jsfiddle.net/inuitcss/Vnph4
+ *
+ */
+.nav,
+.menu {
+  @extend .cf;
+  @extend .unstyled-list;
+
+  list-style-type: none;
+  margin-left: 0;
+
+  > li {
+    float: left;
+    position: relative;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+/**
+ * Sub-menu abstraction as per: csswizardry.com/2011/09/the-menu-abstraction
+ * When used on an `ol` or `ul`, this class throws the list into horizontal mode
+ * e.g.:
+ *
+  <ul class="menu">
+    <li><a href="#"">Home</a></li>
+    <li><a href="#"">About</a></li>
+    <li>
+      <a href=#>Portfolio</a>
+      <ul class="sub-menu">
+        <li><a href="#">Project 1</a></li>
+        <li><a href="#">Project 2</a></li>
+        <li><a href="#">Project 3</a></li>
+      </ul>
+    </li>
+    <li><a href="#"">Contact</a></li>
+  </ul>
+ *
+ */
+.sub-nav,
+.sub-menu {
+  @extend .cf;
+  @extend .unstyled-list;
+
+  height: 0px;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+
+  li:hover &,
+  .is-open & {
+    height: auto;
+  }
+}
+
+
+/**
+ * `.menu--stacked` extends `.menu` and throws the list into vertical mode, e.g.:
+ *
+  <ul class="menu menu--stacked">
+    <li><a href=#>Home</a></li>
+    <li><a href=#>About</a></li>
+    <li><a href=#>Portfolio</a></li>
+    <li><a href=#>Contact</a></li>
+  </ul>
+ *
+ */
+.menu--stacked,
+.nav--stacked {
+
+  > li {
+    display:list-item;
+
+    > a {
+      display:block;
+    }
+  }
+}
+
+
+/**
+ * `.menu--banner` extends `.menu` and centres the list, e.g.:
+ *
+  <ul class="menu  menu--banner">
+    <li><a href=#>Home</a></li>
+    <li><a href=#>About</a></li>
+    <li><a href=#>Portfolio</a></li>
+    <li><a href=#>Contact</a></li>
+  </ul>
+ *
+ */
+.menu--banner {
+  text-align: center;
+}
+
+
+/**
+ * Force a menu to occupy 100% of the available width of its parent. Extends
+ * `.menu`, e.g.:
+ *
+  <ul class="menu  menu--fit">
+    <li><a href=#>Home</a></li>
+    <li><a href=#>About</a></li>
+    <li><a href=#>Portfolio</a></li>
+    <li><a href=#>Contact</a></li>
+  </ul>
+ *
+ * Thanks to @pimpl for this idea!
+ */
+.menu--fit,
+.nav--fit {
+  display: table;
+  width: 100%;
+
+  > li {
+    display: table-cell;
+
+    > a {
+      display: block;
+    }
+  }
+}
+
+
+/**
+ * Make a list of keywords. Extends `.menu`, e.g.:
+ *
+   <ul class="menu  menu--keywords>`
+ *
+ */
+.menu--keywords,
+.nav--keywords {
+
+  > li {
+
+    &:after {
+      content: ", ";
+    }
+
+    &:last-child:after {
+      display: none;
+    }
+  }
+}
