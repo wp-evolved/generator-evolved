@@ -173,8 +173,8 @@ ThemeGenerator.prototype.writeProjectFiles = function() {
 ThemeGenerator.prototype.writeThemeFiles = function() {
   this.log.info('Writing theme files...');
 
-  this.directory('themes/Genesis-Parent-theme', path.join(this.props.web, 'wp-content/themes/Genesis-Parent-theme'));
-  this.directory('themes/Genesis-Child-theme', path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme'));
+  this.directory('themes/genesis-parent-theme', path.join(this.props.web, 'wp-content/themes/genesis-parent-theme'));
+  this.directory('themes/genesis-child-theme', path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme'));
 };
 
 module.exports = ThemeGenerator;

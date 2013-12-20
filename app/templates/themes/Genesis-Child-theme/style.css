@@ -4,7 +4,7 @@ Description: The Child theme used w/ Genesis-Theme
 Author: Genesis
 Author URI: https://github.com/genesis/
 Version: 0.1.0
-Template: Genesis-Parent-Theme
+Template: genesis-parent-theme
 */
 
 /* File only for displaying theme info in Wordpress. CSS styles are located in this child theme at assets/dist/style.min.css and are compiled from assets/src/scss/ */
