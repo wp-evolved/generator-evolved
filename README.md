@@ -1,6 +1,6 @@
 # generator-theme [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-theme.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-theme)
 
-A generator for [Yeoman](http://yeoman.io).
+> Yeoman generator for [Genesis WordPress][1] theme.
 
 
 ## Getting Started
@@ -45,3 +45,9 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
+
+[1]: https://github.com/genesis/wordpress/
+[2]: http://yeoman.io/
+[3]: http://nodejs.org/
+[4]: http://bower.io/
+[5]: https://help.github.com/articles/create-a-repo
