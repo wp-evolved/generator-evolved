@@ -55,9 +55,9 @@ ThemeGenerator.prototype.promptForShortName = function() {
     required: true,
     type: 'text',
     name: 'projShortName',
-    message: 'Project short name (e.g. MS)',
+    message: 'Project short name (e.g. ms)',
     default: function() {
-      return existing() || path.basename(this.env.cwd).replace(/[^A-Z]/g, '');
+      return existing() || path.basename(this.env.cwd).replace(/[^A-Z]/g, '').toLowerCase();
     }.bind(this)
   });
 };
