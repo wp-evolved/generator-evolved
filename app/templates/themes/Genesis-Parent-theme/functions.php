@@ -5,6 +5,7 @@
  */
 define( 'WWW_URL', site_url() );
 define( 'PARENT_THEME_DIR', get_template_directory_uri() );
+define( 'PARENT_TEMP_DIR', get_template_directory() );
 define( 'SITE_NAME', get_option('blogname') );
 define( 'SITE_TAGLINE', get_option('blogdescription') );
 define( 'AUTHOR', SITE_NAME . ' - '. WWW_URL );

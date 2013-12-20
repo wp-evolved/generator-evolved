@@ -5,6 +5,7 @@
  * Uncomment and edit these as you need them
  */
 define( 'CHILD_THEME_DIR', get_stylesheet_directory_uri() );
+define( 'CHILD_TEMP_DIR', get_stylesheet_directory() );
 
 //define('TYPEKIT', '123456');
 //define('HFJ_ACCOUNT', '123456');
