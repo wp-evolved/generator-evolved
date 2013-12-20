@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     NAME:       '<%= pkg.name %>',
     SHORT_NAME: '<%= pkg.shortName.toLowerCase() %>',
     BOWER_DIR:  'bower_components',
-    ASSETS_DIR: 'web/wp-content/themes/<%= pkg.shortName %>-theme/assets',
+    ASSETS_DIR: 'web/wp-content/themes/<%= SHORT_NAME %>-theme/assets',
     DIST_DIR:   '<%= ASSETS_DIR %>/dist',
     DEV_DIR:    '<%= ASSETS_DIR %>/dev',
     SRC_DIR:    '<%= ASSETS_DIR %>/src',
@@ -48,21 +48,21 @@ module.exports = function(grunt) {
           '<%= SRC_DIR %>/js/header/libs/**/*.js',
           '<%= SRC_DIR %>/js/header/**/*.js'
         ],
-        dest: '<%= DEV_DIR %>/<%= SHORT_NAME %>-header.js'
+        dest: '<%= DEV_DIR %>/header.js'
       },
       footer: {
         src: [
           '<%= SRC_DIR %>/js/footer/libs/**/*.js',
           '<%= SRC_DIR %>/js/footer/**/*.js'
         ],
-        dest: '<%= DEV_DIR %>/<%= SHORT_NAME %>-footer.js'
+        dest: '<%= DEV_DIR %>/footer.js'
       },
       single: {
         src: [
           '<%= SRC_DIR %>/js/single/libs/**/*.js',
           '<%= SRC_DIR %>/js/single/**/*.js'
         ],
-        dest: '<%= DEV_DIR %>/<%= SHORT_NAME %>-single.js'
+        dest: '<%= DEV_DIR %>/single.js'
       }
     },
 
