@@ -4,6 +4,7 @@
  * Define Global Exterior Account Variables
  * Uncomment and edit these as you need them
  */
+//define('TYPEKIT', '123456');
 //define('HFJ_ACCOUNT', '123456');
 //define('HFJ_PROJECT', 123456);
 //define('TWITTER_USERNAME', 'username');
