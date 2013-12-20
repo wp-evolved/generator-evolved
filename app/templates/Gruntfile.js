@@ -96,7 +96,7 @@ module.exports = function(grunt) {
         },
         src: [
           '<%= SRC_DIR %>/js/**/*.js',
-          '!**/libs/**/*.js'
+          '!<%= SRC_DIR %>/js/**/libs/**/*.js'
         ]
       }
     },
