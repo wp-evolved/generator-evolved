@@ -10,8 +10,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php wp_title(''); ?></title>
 
-	<link rel="icon" href="<?php echo THEME_DIR; ?>/assets/img/min/favicon.ico">
-
 	<?php if ( defined('TYPEKIT') ) : // Typkit Code ?>
 	<script type="text/javascript" src="//use.typekit.net/<?php echo TYPEKIT; ?>.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
