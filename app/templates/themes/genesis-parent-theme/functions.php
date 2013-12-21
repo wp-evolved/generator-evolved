@@ -4,7 +4,7 @@
  * Define Global Site Variables
  */
 define( 'WWW_URL', site_url() );
-define( 'PARENT_THEME_DIR', get_template_directory_uri() );
+define( 'PARENT_TMPL_URI', get_template_directory_uri() );
 define( 'PARENT_TMPL_DIR', get_template_directory() );
 define( 'SITE_NAME', get_option('blogname') );
 define( 'SITE_TAGLINE', get_option('blogdescription') );
