@@ -11,7 +11,7 @@
 			<?php the_content(); ?>
 		</article>
 
-		<?php include_once('modules/mod-comments.php'); ?>
+		<?php include_once(PARENT_TMPL_DIR . '/modules/mod-comments.php'); ?>
 
 	<?php endwhile; endif; ?>
 

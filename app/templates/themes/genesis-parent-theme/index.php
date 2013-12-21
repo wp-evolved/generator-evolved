@@ -5,7 +5,7 @@
 	<section class="content">
 
 	<?php if ( is_front_page() ) :
-		include_once('includes/tmpl-home.php');
+		include_once('templates/tmpl-home.php');
 
 	elseif ( is_archive() ) :
 		include_once('templates/tmpl-archive.php');
@@ -14,7 +14,7 @@
 		include_once('templates/tmpl-error.php');
 
 	elseif ( is_search() ) :
-		include_once('includes/tmpl-results.php');
+		include_once('templates/tmpl-results.php');
 
 	else : ?>
 

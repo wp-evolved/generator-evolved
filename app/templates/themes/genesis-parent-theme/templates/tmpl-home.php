@@ -5,7 +5,7 @@
 	if( have_posts() ) while ( have_posts() ) : the_post();
 ?>
 
-	<?php include_once('../modules/mod-post-preview.php'); ?>
+	<?php include_once(PARENT_TMPL_DIR . '/modules/mod-post-preview.php'); ?>
 
 <?php endwhile; wp_reset_query(); ?>
 </ul>
