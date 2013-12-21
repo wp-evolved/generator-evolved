@@ -1,0 +1,48 @@
+/*------------------------------------*\
+    $SITE HEADER
+\*------------------------------------*/
+.site-header {
+  background-color: $color-bg-header;
+  border-bottom: solid 1px #dfe2e7;
+}
+
+.site-logo {
+  color: #fff;
+  font-size: pxtoem($size-giga, $base-font-size);
+  font-weight: 200;
+  line-height: 1em;
+  padding-bottom: 30px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.main-nav {
+  background-color: $color-bg-nav;
+  font-size: pxtoem($size-milli, $base-font-size);
+  line-height: pxtoem(20px, $base-font-size);
+  padding: 15px 30px;
+
+  li {
+    border-left: 1px solid #DFE2E7;
+
+    &:first-child {
+      border: none;
+      font-size: pxtoem($size-zeta, $size-milli);
+      font-weight: 500;
+    }
+  }
+
+  a {
+    color: $color-text-tinted;
+    display: block;
+    padding: 0 15px;
+
+    &:hover {
+      color: $color-text;
+    }
+  }
+
+  .sub-menu li {
+    background-color: $color-button-regular;
+  }
+}

@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    $SITE FOOTER
+\*------------------------------------*/
+.site-footer {
+  background-color: $color-bg-footer;
+  clear: both;
+  font-size: $size-zeta;
+  padding: 5px 0 $base-spacing-unit;
+
+  a {
+    color: $color-primary;
+    font-weight: 400;
+
+    &:hover {
+      color: $color-link-active;
+    }
+  }
+}
+
+.legal {
+    margin-bottom: 0;
+    text-align: center;
+}

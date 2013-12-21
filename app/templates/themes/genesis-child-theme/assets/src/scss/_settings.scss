@@ -110,28 +110,29 @@ $close-quote: null;
 /**
  * Typography
  */
-$font-primary:    "Sentinel A", "Sentinel B" Georgia, serif;
-$font-secondary:  "Tungsten A", "Tungsten B", Helvetica, Arial, sans-serif;
+$font-primary:    'Helvetica Neue', 'Open Sans', sans-serif;
+$font-secondary:  'Wire One', 'Helvetica Neue', 'Open Sans', sans-serif;
 
 
 /**
  * Color Variables
  */
-$color-primary:         #00304c;
-$color-secondary:       #6ab7cb;
-$color-tertiary:        #e36f14;
-$color-tertiary-tinted:	#c46013;
-$color-background:      #fff;
+$color-primary:         #505050;
+$color-secondary:       #F89406;
+$color-tertiary:        #2BADAD;
+$color-tertiary-shaded:	#228a8a;
+$color-background:      #f3f3f3;
 $color-bg-tinted:       #efeee7;
 $color-text:            $color-primary;
 $color-text-required:   #b1b3b6;
-$color-bg-header:       $color-bg-tinted;
-$color-bg-nav:          $color-secondary;
-$color-bg-footer:       $color-bg-tinted;
+$color-text-tinted: 	#9090aa;
+$color-bg-header:       #555;
+$color-bg-nav:          #f3f6fb;
+$color-bg-footer:       #555;
 $color-link-regular:    $color-tertiary;
-$color-link-active:     $color-tertiary-tinted;
+$color-link-active:     $color-tertiary-shaded;
 $color-button-regular:  $color-tertiary;
-$color-button-active:   $color-tertiary-tinted;
+$color-button-active:   $color-tertiary-shaded;
 
 $color-brand-twitter:   #2cbfed;
 $color-brand-facebook:  #3a5898;

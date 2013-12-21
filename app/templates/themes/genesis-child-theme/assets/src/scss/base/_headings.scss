@@ -11,20 +11,12 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-secondary;
   font-weight: 500;
-}
-
-h1, h2, h3 {
-  text-transform: uppercase;
-}
-
-h2, h3, h4, h5, h6 {
   line-height: 1.1;
 }
 
 h1 {
   font-size: pxtoem($size-alpha, $base-font-size);
   margin-bottom: pxtoem($base-spacing-unit, $size-alpha);
-  line-height: 1;
 }
 
 h2 {
