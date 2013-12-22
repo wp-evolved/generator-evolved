@@ -199,20 +199,12 @@ ThemeGenerator.prototype.writeThemeFiles = function() {
 
   var parLoc = path.join(this.props.web, 'wp-content/themes/genesis-parent-theme');
   var childLoc = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
-
-  var existing = function(theme) {
-    try {
-      var style = this.readFileAsString(path.join(theme, 'style.css'));
-
-      if (style.length) {
-        return true;
-      }
-    } catch(e) {}
-  }.bind(this);
+  var childStyle = this.readFileAsString(path.join(childLoc, 'style.css'));
+  var writeChild = childStyle.length === 0 || this.props.writeChild;
 
   this.directory('themes/genesis-parent-theme', parLoc);
 
-  if (!existing(childLoc) || this.props.writeChild) {
+  if (writeChild) {
     this.directory('themes/genesis-child-theme', childLoc);
   }
 };
