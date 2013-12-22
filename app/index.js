@@ -139,6 +139,31 @@ ThemeGenerator.prototype.promptForWeb = function() {
   });
 };
 
+ThemeGenerator.prototype.promptForChild = function() {
+
+  var existing = function(response) {
+    var childLoc = path.join(response.web, 'wp-content/themes/', response.projShortName + '-theme');
+
+    try {
+      var style = this.readFileAsString(path.join(childLoc, 'style.css'));
+
+      if (style.length) {
+        return true;
+      }
+    } catch(e) {}
+  }.bind(this);
+
+  this.prompts.push({
+    when: function(response) {
+      return existing(response);
+    },
+    type: 'confirm',
+    name: 'writeChild',
+    message: 'Overwrite existing child theme?',
+    default: 'no'
+  });
+}
+
 ThemeGenerator.prototype.ask = function() {
   var done = this.async();
 
@@ -150,7 +175,6 @@ ThemeGenerator.prototype.ask = function() {
 
     done();
   }.bind(this));
-
 };
 
 ThemeGenerator.prototype.ready = function() {
@@ -173,8 +197,24 @@ ThemeGenerator.prototype.writeProjectFiles = function() {
 ThemeGenerator.prototype.writeThemeFiles = function() {
   this.log.info('Writing theme files...');
 
-  this.directory('themes/genesis-parent-theme', path.join(this.props.web, 'wp-content/themes/genesis-parent-theme'));
-  this.directory('themes/genesis-child-theme', path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme'));
+  var parLoc = path.join(this.props.web, 'wp-content/themes/genesis-parent-theme');
+  var childLoc = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
+
+  var existing = function(theme) {
+    try {
+      var style = this.readFileAsString(path.join(theme, 'style.css'));
+
+      if (style.length) {
+        return true;
+      }
+    } catch(e) {}
+  }.bind(this);
+
+  this.directory('themes/genesis-parent-theme', parLoc);
+
+  if (!existing(childLoc) || this.props.writeChild) {
+    this.directory('themes/genesis-child-theme', childLoc);
+  }
 };
 
 module.exports = ThemeGenerator;
