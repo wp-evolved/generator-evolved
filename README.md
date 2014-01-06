@@ -38,7 +38,7 @@ It'll ask you a series of questions (many should already be pre-populated from t
 
 ### Install Dev Dependencies
 
-To install the dev dependencies run
+The NPM and Bower dependencies should be automatically installed, but if they fail run:
 
 ```
 npm install
@@ -51,6 +51,8 @@ bower install
 ```
 
 This will install our theme dependencies like js libraries, bourbon, and neat (these are declared in bower.json).
+
+### Install Sass
 
 ```
 sudo gem install sass
@@ -72,7 +74,7 @@ grunt build:dev
 
 To start our new project we need to run the `build:dev` task. When running our project locally we want to build and concatonate our assets but not minify them. This task creates a `dev` directory and runs all the tasks required to build the assets.
 
-*Since these are unminified files are only used locally, we also want to be sure we don't track these files in Git.*
+*Since these unminified files are only used locally, we also want to be sure we don't track these files in Git.*
 
 ```
 grunt watch

@@ -17,7 +17,6 @@ var ThemeGenerator = module.exports = function ThemeGenerator(args, options, con
     this.installDependencies({
       bower: true,
       npm: true,
-      skipInstall: options['skip-install'],
       skipMessage: true,
       callback: function() {
         this.log.ok('All done! Run ' + chalk.yellow('grunt build:dev') + ' and ' + chalk.yellow('grunt watch') + ' to get started!');
@@ -227,6 +226,8 @@ ThemeGenerator.prototype.cleanUp = function() {
       if (err) return this.log.info( chalk.red(err) );
     });
   }
+
+  this.log.info('Running ' + chalk.yellow('bower install') + ' & ' + chalk.yellow('npm install') + ' for you to install the required dependencies. If this fails, try running the command yourself.');
 };
 
 module.exports = ThemeGenerator;
