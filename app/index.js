@@ -3,7 +3,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var fs = require('fs-extra');
-//var chalk = require('chalk');
+var chalk = require('chalk');
 
 
 var ThemeGenerator = module.exports = function ThemeGenerator(args, options, config) {
@@ -18,7 +18,10 @@ var ThemeGenerator = module.exports = function ThemeGenerator(args, options, con
       bower: true,
       npm: true,
       skipInstall: options['skip-install'],
-      skipMessage: true
+      skipMessage: true,
+      callback: function() {
+        this.log.ok('All done! Run ' + chalk.yellow('grunt build:dev') + ' and ' + chalk.yellow('grunt watch') + ' to get started!');
+      }.bind(this)
     });
   });
 
@@ -180,7 +183,7 @@ ThemeGenerator.prototype.ask = function() {
 
 ThemeGenerator.prototype.ready = function() {
   this.log.write('\n');
-  this.log.info('Here we go!');
+  this.log.info( chalk.green('Here we go!') );
 };
 
 ThemeGenerator.prototype.writeProjectFiles = function() {
@@ -220,11 +223,9 @@ ThemeGenerator.prototype.cleanUp = function() {
     var file = path.join(root, files[i]);
 
     fs.remove(file, function(err) {
-      if (err) return this.log.info(err);
+      if (err) return this.log.info( chalk.red(err) );
     });
   }
-
-  this.log.info('Scaffolding complete!');
 };
 
 module.exports = ThemeGenerator;
