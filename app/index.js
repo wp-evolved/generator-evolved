@@ -2,6 +2,7 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
+var fs = require('fs-extra');
 //var chalk = require('chalk');
 
 
@@ -207,6 +208,23 @@ ThemeGenerator.prototype.writeThemeFiles = function() {
   if (writeChild) {
     this.directory('themes/genesis-child-theme', childLoc);
   }
+};
+
+ThemeGenerator.prototype.cleanUp = function() {
+  this.log.info('Cleaning up...');
+
+  var root = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
+  var files = this.expandFiles('**/.gitkeep', {dot: true, cwd: root});
+
+  for (var i = 0; i < files.length; i++) {
+    var file = path.join(root, files[i]);
+
+    fs.remove(file, function(err) {
+      if (err) return this.log.info(err);
+    });
+  }
+
+  this.log.info('Scaffolding complete!');
 };
 
 module.exports = ThemeGenerator;
