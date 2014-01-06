@@ -50,7 +50,7 @@ This will install grunt and all of the grunt plugins needed for concatonation, m
 bower install
 ```
 
-This will install our theme dependencies like jquery, bourbon, and neat (these are declared in bower.json).
+This will install our theme dependencies like js libraries, bourbon, and neat (these are declared in bower.json).
 
 ```
 sudo gem install sass
@@ -130,13 +130,13 @@ Modules are small chunks of content used throughout the project. The goal is to 
 
 Trick heading, there is none. There is a `style.css` file but it's only for recognizing the parent theme.
 
-### Working with the Child theme.
+### Working with the Child theme
+
+The goal of the child theme is to setup the project specific elements. This is where we'll include the design specific decisions (and utilize Grunt). Feel free to edit, add and remove as necessary.
 
 #### Functions
 
-#### Templates
-
-#### Modules
+These are project specific functions, global variables, separate out the development and distribution assets, and require any outside functions.
 
 
 ### Styling
