@@ -110,6 +110,26 @@ For further reading on Bower and Grunt, checkout these posts
 * Get Up and Running with Grunt - http://coding.smashingmagazine.com/2013/10/29/get-up-running-grunt/
 * Twitter Bower & Grunt - http://gpiot.com/blog/twitter-bower-grunt-get-started-with-assets-management/
 
+### Working with the Parent theme.
+
+The goal of the parent theme is to give a structured base for your projects but not to assume any design decisions. Making decisions in the parent theme can lead to bloat and unnecessary overrides, we want our projects to be lean and fast.
+
+#### Functions
+
+These are functions we find we use across all of our projects. It's not everything, since that could lead to the mentioned overrides, but it includes what we think is necessary.
+
+#### Templates
+
+To keep from repeating ourselves, we aren't using WP templates in the traditional sense. There's no reason to have to open and close every template with the same code, so instead these templates are used with includes in their respective parent pages (index.php, page.php, and single.php).
+
+#### Modules
+
+Modules are small chunks of content used throughout the project. The goal is to reuse our code and abstract out small differences.
+
+#### Styling
+
+Trick heading, there is none. There is a `style.css` file but it's only for recognizing the parent theme.
+
 ### Working with the Child theme.
 
 #### Functions
