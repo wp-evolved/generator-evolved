@@ -192,6 +192,7 @@ ThemeGenerator.prototype.writeProjectFiles = function() {
   this.copy('Gruntfile.js', 'Gruntfile.js');
 
   this.template('editorconfig', '.editorconfig');
+  this.template('gitignore', '.gitignore');
   this.template('jshintrc', '.jshintrc');
   this.template('bower.json', 'bower.json');
   this.template('package.json', 'package.json');
