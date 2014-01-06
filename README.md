@@ -1,46 +1,136 @@
 # generator-theme [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-theme.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-theme)
 
-> Yeoman generator for [Genesis WordPress][1] theme.
+> A Yeoman generator for [Genesis WordPress][1] themeing.
+Genesis Theme is a simple pair of parent and child themes for use with Genesis WordPress.
+
+## Features
+
+* Yeoman generator makes installation (or updating) on an existing Genesis project simple.
+* Parent theme creates a unified base for all Genesis projects without making too many design decisions.
+* Child theme takes control of the project's specific design requirements utilizing Bourbon for Sass utilities and Neat for grid alignments.
+* Utilizes Bower for easy dependency management.
+* Utilizes Grunt for an integrated CLI workflow with Genesis.
 
 
-## Getting Started
+## Installation
 
-### What is Yeoman?
+### Start your project with Genesis
 
-Trick question. It's not a thing. It's this guy:
+Follow the Genesis setup instructions to get started.
 
-![](http://i.imgur.com/JHaAlBJ.png)
+### Theme Generator and Grunt
 
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
-
-```
-$ npm install -g yo
-```
-
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-genesis-theme from npm, run:
+Install generator-genesis-theme and Grunt CLI globally (you should already have Node, NPM, Yeoman, Bower and Genesis Wordpress installed from the previous step)
 
 ```
-$ npm install -g generator-genesis-theme
+$ npm install -g generator-genesis-theme grunt-cli
 ```
 
-Finally, initiate the generator:
+CD to your project and initiate the Gensis Theme generator
 
 ```
 $ yo genesis-theme
 ```
 
-### Getting To Know Yeoman
+It'll ask you a series of questions (many should already be pre-populated from the Genesis setup).
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
+## Getting Started
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+### Install Dev Dependencies
 
+To install the dev dependencies run
+
+```
+npm install
+```
+
+This will install grunt and all of the grunt plugins needed for concatonation, minification, image compression, js and sass compilation, and the necessary components for live reload (these are declared in package.json).
+
+```
+bower install
+```
+
+This will install our theme dependencies like jquery, bourbon, and neat (these are declared in bower.json).
+
+```
+sudo gem install sass
+```
+
+This installs the sass gem for sass compilation.
+
+### Get started with Grunt
+
+Grunt isn't any more difficult to set up and use than Genesis. If you're comfortable with Genesis, you should be able to manage working with Grunt.
+
+#### Main Tasks
+
+At it's core Grunt is extremely powerful, but most of the time we're only going to be utilizing it for a few standard tasks.
+
+```
+grunt build:dev
+```
+
+To start our new project we need to run the `build:dev` task. When running our project locally we want to build and concatonate our assets but not minify them. This task creates a `dev` directory and runs all the tasks required to build the assets.
+
+*Since these are unminified files are only used locally, we also want to be sure we don't track these files in Git.*
+
+```
+grunt watch
+```
+
+After our `dev` directory is created, we can run the `watch` task to set Grunt to automatically build the `dev` assets and reload the browser when necessary with LiveReload.
+
+*After running `watch` refresh the browser once to connect the LiveReload script.*
+
+```
+grunt build
+```
+
+This task builds our production assets concatonating and minifying all the necessary files. These are the files used in staging and production environments.
+
+#### Available Grunt tasks
+
+Although `watch`, `build`, and `build:dev` should get you through 90% of your workflow there are other tasks (and subtasks) you can run in the current Grunt setup.
+
+```
+grunt clean:dev		# Removes all files from the assets/dev dir
+grunt clean:dist	# Removes all files from the assets/dist dir
+grunt lint			# Lints all js files (including the Gruntfile) for errors
+grunt concat		# Concatonates all the separate scripts into header, footer and single source files
+grunt uglify		# Minifies the concatonated scripts in the assets/dist dir
+grunt sass:dist		# Compiles sass files (in expanded mode) to the assets/dev dir
+grunt sass:dev		# Compiles sass files (in compressed mode) to the assets/dist dir
+grunt imagemin		# Compresses images from /img/src directory to the /img/min directory
+```
+
+#### Further info
+
+For further reading on Bower and Grunt, checkout these posts
+
+* Get Up and Running with Grunt - http://coding.smashingmagazine.com/2013/10/29/get-up-running-grunt/
+* Twitter Bower & Grunt - http://gpiot.com/blog/twitter-bower-grunt-get-started-with-assets-management/
+
+### Working with the Child theme.
+
+#### Functions
+
+#### Templates
+
+#### Modules
+
+
+### Styling
+
+#### Bourbon and Neat
+
+#### Base, Generic and Objects
+
+#### Modules and Layout
+
+
+### Scripting
+
+### Images
 
 ## License
 
