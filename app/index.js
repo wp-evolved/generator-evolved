@@ -201,10 +201,21 @@ ThemeGenerator.prototype.writeProjectFiles = function() {
 ThemeGenerator.prototype.writeThemeFiles = function() {
   this.log.info('Writing theme files...');
 
+  var existing = function(location) {
+    try {
+      var style = this.readFileAsString(path.join(location, 'style.css'));
+
+      if (style.length) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch(e) {}
+  }.bind(this);
+
   var parLoc = path.join(this.props.web, 'wp-content/themes/genesis-parent-theme');
   var childLoc = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
-  var childStyle = this.readFileAsString(path.join(childLoc, 'style.css'));
-  var writeChild = childStyle.length === 0 || this.props.writeChild;
+  var writeChild = !existing(childLoc) || this.props.writeChild;
 
   this.directory('themes/genesis-parent-theme', parLoc);
 
