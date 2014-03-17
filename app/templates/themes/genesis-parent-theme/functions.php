@@ -68,7 +68,6 @@ add_filter('wp_nav_menu_objects', function($items) {
     return $items;
 });
 
-
 /*
  *  Automatically Set the Featured Image in WordPress
     Source: http://wpforce.com/automatically-set-the-featured-image-in-wordpress/#comment-13391
@@ -150,5 +149,63 @@ function add_class_next_link($class) {
 	return str_replace('<a', '<a class="next-post"', $class);
 }
 add_filter('next_post_link', 'add_class_next_link');
+
+
+/** Getting Pages by Slugs
+ *  SOURCE: https://gist.github.com/germanny/9399616
+ *          https://gist.github.com/ericrasch/4723316
+ *
+ *
+ * Get a Page's ID by slug
+ * http://erikt.tumblr.com/post/278953342/get-a-wordpress-page-id-with-the-slug
+ */
+function get_id_by_slug($page_slug) {
+  $page = get_page_by_path($page_slug);
+  if ($page) {
+      return $page->ID;
+  } else {
+      return null;
+  }
+}
+
+/**
+ * Check If Page Is Child
+ * Source: http://bavotasan.com/2011/is_child-conditional-function-for-wordpress/
+ */
+function is_child( $page_id_or_slug ) { // $page_id_or_slug = The ID of the page we're looking for pages underneath
+  global $post; // load details about this page
+
+  if ( !is_numeric( $page_id_or_slug ) ) { // Used this code to change a slug to an ID, but had to change is_int to is_numeric for it to work.
+    $page = get_page_by_path( $page_id_or_slug );
+
+    if (isset($page)) {
+      $page_id_or_slug = $page->ID;
+      if ( is_page() && ( $post->post_parent == $page_id_or_slug ) )
+        return true; // we're at the page or at a sub page
+      else
+        return false; // we're elsewhere
+    } else {
+      return false;
+    }
+  }
+}
+
+/**
+ * Check If Page Is Parent/Child/Ancestor
+ * Source: http://css-tricks.com/snippets/wordpress/if-page-is-parent-or-child/#comment-172337
+ */
+function is_tree( $page_id_or_slug ) { // $page_id_or_slug = The ID of the page we're looking for pages underneath
+  global $post; // load details about this page
+
+  if ( !is_numeric( $page_id_or_slug ) ) { // Used this code to change a slug to an ID, but had to change is_int to is_numeric for it to work: http://bavotasan.com/2011/is_child-conditional-function-for-wordpress/
+    $page = get_page_by_path( $page_id_or_slug );
+    $page_id_or_slug = $page->ID;
+  }
+
+  if ( is_page() && ( $post->post_parent == $page_id_or_slug || (is_page( $page_id_or_slug ) || in_array($page_id_or_slug, $post->ancestors) ) ) )
+    return true; // we're at the page or at a sub page
+  else
+    return false; // we're elsewhere
+}
 
 ?>
