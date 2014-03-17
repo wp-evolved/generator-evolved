@@ -7,6 +7,7 @@
 define( 'CHILD_SS_URI', get_stylesheet_directory_uri() );
 define( 'CHILD_SS_DIR', get_stylesheet_directory() );
 
+//define( 'DEFAULT_IMG_ID', '1234'); // post id of default photo
 //define('TYPEKIT', '123456');
 //define('HFJ_ACCOUNT', '123456');
 //define('HFJ_PROJECT', 123456);
@@ -81,12 +82,27 @@ function excerpt_ellipse($text) {
 add_filter('get_the_excerpt', 'excerpt_ellipse');
 
 
-/**
+/** IMAGES
+ *
  * Add Post Thumbnails
  */
 add_theme_support('post-thumbnails');
 set_post_thumbnail_size(50, 50, true);
-add_image_size('preview-img', 250, 140, true);
+
+/*
+ *  ADD SUPPORT FOR VARIOUS THUMBNAIL SIZES
+ *  http://codex.wordpress.org/Function_Reference/add_image_size
+    ---------------------------------------------------------------------------------------------------- */
+    if ( function_exists( 'add_image_size' ) ) {
+      add_image_size('preview-img', 250, 140, true); //(cropped)
+    }
+
+/*
+ *  Manually Set the Featured Image in WordPress
+    Source: http://wpforce.com/automatically-set-the-featured-image-in-wordpress/#comment-13391
+    Use it temporary to generate all featured images (in other words, run this line once, then comment it out)
+    ---------------------------------------------------------------------------------------------------- */
+    // add_action('the_post', 'autoset_featured_image');
 
 
 /**

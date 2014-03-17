@@ -68,6 +68,57 @@ add_filter('wp_nav_menu_objects', function($items) {
 });
 
 
+/*
+ *  Automatically Set the Featured Image in WordPress
+    Source: http://wpforce.com/automatically-set-the-featured-image-in-wordpress/#comment-13391
+    ---------------------------------------------------------------------------------------------------- */
+    function autoset_featured_image() {
+      global $post;
+      $already_has_thumb = has_post_thumbnail($post->ID);
+      if (!$already_has_thumb)  {
+        $attached_image = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1" );
+        if ($attached_image) {
+          foreach ($attached_image as $attachment_id => $attachment) {
+            set_post_thumbnail($post->ID, $attachment_id);
+          }
+        } else {
+            if ( defined('DEFAULT_IMG_ID') ) {
+                set_post_thumbnail($post->ID, DEFAULT_IMG_ID); // post id of default photo
+            } else {}
+        }
+      }
+    }
+    // Used for new posts
+    add_action('save_post', 'autoset_featured_image');
+    add_action('draft_to_publish', 'autoset_featured_image');
+    add_action('new_to_publish', 'autoset_featured_image');
+    add_action('pending_to_publish', 'autoset_featured_image');
+    add_action('future_to_publish', 'autoset_featured_image');
+
+/*
+ *  Post Thumbnail Linking to the Post Permalink
+    Source: http://codex.wordpress.org/Function_Reference/the_post_thumbnail#Post_Thumbnail_Linking_to_the_Post_Permalink
+    ---------------------------------------------------------------------------------------------------- */
+    add_filter( 'post_thumbnail_html', 'my_post_image_html', 10, 3 );
+    function my_post_image_html( $html, $post_id, $post_image_id ) {
+      $html = '<a href="' . get_permalink( $post_id ) . '" title="' . esc_attr( get_the_title( $post_id ) ) . '" class="post-thumb">' . $html . '</a>';
+      return $html;
+    }
+
+/*
+ *  Remove Default Image Links
+    Source: http://www.wpbeginner.com/wp-tutorials/automatically-remove-default-image-links-wordpress/
+    ---------------------------------------------------------------------------------------------------- */
+    function wpb_imagelink_setup() {
+      $image_set = get_option( 'image_default_link_type' );
+
+      if ($image_set !== 'none') {
+        update_option('image_default_link_type', 'none');
+      }
+    }
+    add_action('admin_init', 'wpb_imagelink_setup', 10);
+
+
 /**
  * Add excerpt to pages
  */
