@@ -44,7 +44,8 @@ if ( function_exists('register_sidebar') ) {
 add_theme_support('menus');
 
 
-/**
+/** IMAGES
+ *
  * Add Parent Class to menu items
  * http://codex.wordpress.org/Function_Reference/wp_nav_menu#How_to_add_a_parent_class_for_menu_item
  */
