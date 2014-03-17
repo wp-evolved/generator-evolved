@@ -39,6 +39,31 @@ if ( function_exists( 'get_wpseo_options' ) ) {
 
 
 /**
+ * Add new classes to the $classes array
+ * http://codex.wordpress.org/Function_Reference/body_class#Add_Classes_By_Filters
+ */
+add_filter('body_class','my_class_names');
+function my_class_names($classes) {
+	global $post;
+
+	if ( is_front_page() ) :
+		$classes[] = 'home';
+	elseif ( is_page() ) :
+		$classes[] = $post->post_name;
+	elseif( is_archive() ) :
+		$classes[] = 'archive';
+	elseif( is_404() ) :
+		$classes[] = 'error';
+	elseif( is_search() ) :
+		$classes[] = 'search';
+	endif;
+
+	// return the $classes array
+	return $classes;
+}
+
+
+/**
   * Post Formats Support
   */
 function add_post_formats() {

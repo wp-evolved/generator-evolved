@@ -23,7 +23,7 @@
 
 </head>
 
-<body <?php bodyClass(); ?> >
+<body <?php body_class(); ?> >
 
 	<header role="banner" class="site-header">
 		<?php if ( is_front_page() ) :

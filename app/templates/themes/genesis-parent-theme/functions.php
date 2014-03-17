@@ -12,32 +12,6 @@ define( 'AUTHOR', SITE_NAME . ' - '. WWW_URL );
 
 
 /**
- * Add Current Page to body class
- */
-function bodyClass() {
-	global $wp_query;
-
-	if ( is_front_page() ) :
-		$page = 'home';
-	elseif ( is_page() ) :
-		$page = $wp_query->query_vars['pagename'];
-	elseif( is_archive() ) :
-		$page = 'archive';
-	elseif( is_404() ) :
-		$page = 'error';
-	elseif( is_search() ) :
-		$page = 'search';
-	endif;
-
-	if ($page) :
-		echo 'class="page ' . $page . '"';
-	elseif ( is_single() ) :
-		post_class();
-	endif;
-}
-
-
-/**
  * Add category nicenames in body and post class
  */
 function category_id_class($classes) {
