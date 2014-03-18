@@ -44,9 +44,7 @@ if ( function_exists('register_sidebar') ) {
 add_theme_support('menus');
 
 
-/** IMAGES
- *
- * Add Parent Class to menu items
+/** Add Parent Class to menu items
  * http://codex.wordpress.org/Function_Reference/wp_nav_menu#How_to_add_a_parent_class_for_menu_item
  */
 add_filter('wp_nav_menu_objects', function($items) {
@@ -96,6 +94,8 @@ add_filter('wp_nav_menu_objects', function($items) {
     add_action('future_to_publish', 'autoset_featured_image');
 
 /*
+/** IMAGES
+ *
  *  Post Thumbnail Linking to the Post Permalink
     Source: http://codex.wordpress.org/Function_Reference/the_post_thumbnail#Post_Thumbnail_Linking_to_the_Post_Permalink
     ---------------------------------------------------------------------------------------------------- */
@@ -106,7 +106,7 @@ add_filter('wp_nav_menu_objects', function($items) {
     }
 
 /*
- *  Remove Default Image Links
+ *  Link Images Set to "None" by Default
     Source: http://www.wpbeginner.com/wp-tutorials/automatically-remove-default-image-links-wordpress/
     ---------------------------------------------------------------------------------------------------- */
     function wpb_imagelink_setup() {
