@@ -6,8 +6,8 @@
  */
 define( 'CHILD_SS_URI', get_stylesheet_directory_uri() );
 define( 'CHILD_SS_DIR', get_stylesheet_directory() );
+define( 'DEFAULT_PHOTO', THEME_DIR .'/assets/img/min/default-photo.gif' );
 
-//define( 'DEFAULT_IMG_ID', '1234'); // post id of default photo
 //define('TYPEKIT', '123456');
 //define('HFJ_ACCOUNT', '123456');
 //define('HFJ_PROJECT', 123456);
