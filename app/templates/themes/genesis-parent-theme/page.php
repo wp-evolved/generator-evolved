@@ -4,8 +4,8 @@
 
 	<section class="content">
 
-	<?php if ( is_page('blog') ) :
-		include_once('templates/tmpl-blog.php');
+	<?php if ( is_page( 'blog' ) ) :
+		include_once( 'templates/tmpl-blog.php' );
 	else : ?>
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
