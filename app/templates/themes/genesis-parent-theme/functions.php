@@ -66,34 +66,6 @@ add_filter('wp_nav_menu_objects', function($items) {
     return $items;
 });
 
-/*
- *  Automatically Set the Featured Image in WordPress
-    Source: http://wpforce.com/automatically-set-the-featured-image-in-wordpress/#comment-13391
-    ---------------------------------------------------------------------------------------------------- */
-    function autoset_featured_image() {
-      global $post;
-      $already_has_thumb = has_post_thumbnail($post->ID);
-      if (!$already_has_thumb)  {
-        $attached_image = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1" );
-        if ($attached_image) {
-          foreach ($attached_image as $attachment_id => $attachment) {
-            set_post_thumbnail($post->ID, $attachment_id);
-          }
-        } else {
-            if ( defined('DEFAULT_IMG_ID') ) {
-                set_post_thumbnail($post->ID, DEFAULT_IMG_ID); // post id of default photo
-            } else {}
-        }
-      }
-    }
-    // Used for new posts
-    add_action('save_post', 'autoset_featured_image');
-    add_action('draft_to_publish', 'autoset_featured_image');
-    add_action('new_to_publish', 'autoset_featured_image');
-    add_action('pending_to_publish', 'autoset_featured_image');
-    add_action('future_to_publish', 'autoset_featured_image');
-
-/*
 /** IMAGES
  *
  *  Post Thumbnail Linking to the Post Permalink

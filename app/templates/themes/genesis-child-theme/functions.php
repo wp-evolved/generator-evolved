@@ -97,13 +97,6 @@ set_post_thumbnail_size(50, 50, true);
       add_image_size('post-thumb', 250, 140, true); //(cropped)
     }
 
-/*
- *  Manually Set the Featured Image in WordPress
-    Source: http://wpforce.com/automatically-set-the-featured-image-in-wordpress/#comment-13391
-    Use it temporary to generate all featured images (in other words, run this line once, then comment it out)
-    ---------------------------------------------------------------------------------------------------- */
-    // add_action('the_post', 'autoset_featured_image');
-
 
 /**
  * Remove Yoast SEO Canonical URLs
