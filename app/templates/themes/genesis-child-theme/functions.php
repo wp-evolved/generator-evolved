@@ -94,7 +94,7 @@ set_post_thumbnail_size(50, 50, true);
  *  http://codex.wordpress.org/Function_Reference/add_image_size
     ---------------------------------------------------------------------------------------------------- */
     if ( function_exists( 'add_image_size' ) ) {
-      add_image_size('preview-img', 250, 140, true); //(cropped)
+      add_image_size('post-thumb', 250, 140, true); //(cropped)
     }
 
 /*
