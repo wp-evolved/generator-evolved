@@ -1,25 +1,25 @@
 'use strict';
-var util = require('util');
-var path = require('path');
-var yeoman = require('yeoman-generator');
-var fs = require('fs-extra');
-var chalk = require('chalk');
+var util    = require('util');
+var path    = require('path');
+var yeoman  = require('yeoman-generator');
+var fs      = require('fs-extra');
+var chalk   = require('chalk');
 
 
 var TestGeneratorGenerator = yeoman.generators.Base.extend({
   init: function () {
-    this.pkg = require('../package.json');
-    this.prompts = [];
-    this.bower = require(path.join(this.env.cwd, 'bower.json'));
+    this.prompts  = [];
+    this.pkg      = require('../package.json');
+    this.bower    = require(path.join(this.env.cwd, 'bower.json'));
 
     this.on('end', function () {
       this.config.save();
       this.log.info('Running ' + chalk.yellow('bower install') + ' & ' + chalk.yellow('npm install') + ' for you to install the required dependencies. If this fails, try running the command yourself.');
       this.installDependencies({
-        bower: true,
-        npm: true,
-        skipMessage: true,
-        callback: function() {
+        bower:        true,
+        npm:          true,
+        skipMessage:  true,
+        callback:     function() {
           this.log.ok('All done! Run ' + chalk.yellow('grunt build:dev') + ' and ' + chalk.yellow('grunt watch') + ' to get started!');
         }.bind(this)
       });
@@ -34,10 +34,10 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
 
     this.prompts.push({
       required: true,
-      type: 'text',
-      name: 'projName',
-      message: 'Project Name (e.g. MySite)',
-      default: function() {
+      type:     'text',
+      name:     'projName',
+      message:  'Project Name (e.g. MySite)',
+      default:  function() {
         return existing() || path.basename(this.env.cwd);
       }.bind(this)
     });
@@ -51,10 +51,10 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
 
     this.prompts.push({
       required: true,
-      type: 'text',
-      name: 'projShortName',
-      message: 'Project short name (e.g. ms)',
-      default: function() {
+      type:     'text',
+      name:     'projShortName',
+      message:  'Project short name (e.g. ms)',
+      default:  function() {
         return existing() || path.basename(this.env.cwd).replace(/[^A-Z]/g, '').toLowerCase();
       }.bind(this)
     });
@@ -67,10 +67,10 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
     }.bind(this);
 
     this.prompts.push({
-      type: 'text',
-      name: 'authorName',
-      message: 'Author Name (e.g. John Smith)',
-      default: function() {
+      type:     'text',
+      name:     'authorName',
+      message:  'Author Name (e.g. John Smith)',
+      default:  function() {
         return existing() || '';
       }.bind(this)
     });
@@ -83,10 +83,10 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
     }.bind(this);
 
     this.prompts.push({
-      type: 'text',
-      name: 'authorURI',
-      message: 'Author URI (e.g. www.johnsmith.com)',
-      default: function() {
+      type:     'text',
+      name:     'authorURI',
+      message:  'Author URI (e.g. www.johnsmith.com)',
+      default:  function() {
         return existing() || '';
       }.bind(this)
     });
@@ -99,10 +99,10 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
     }.bind(this);
 
     this.prompts.push({
-      type: 'text',
-      name: 'projDescription',
-      message: 'Project Description',
-      default: function() {
+      type:     'text',
+      name:     'projDescription',
+      message:  'Project Description',
+      default:  function() {
         return existing() || '';
       }.bind(this)
     });
@@ -115,20 +115,20 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
     }.bind(this);
 
     this.prompts.push({
-      type: 'text',
-      name: 'projVersion',
-      message: 'Project version',
-      default: function() {
+      type:     'text',
+      name:     'projVersion',
+      message:  'Project version',
+      default:  function() {
         return existing() || '0.1.0';
       }.bind(this)
     });
   },
   promptForWeb: function() {
     this.prompts.push({
-      type: 'text',
-      name: 'web',
-      message: 'WordPress directory',
-      default: 'web'
+      type:     'text',
+      name:     'web',
+      message:  'WordPress directory',
+      default:  'web'
     });
   },
   promptForChild: function() {
@@ -146,13 +146,13 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
     }.bind(this);
 
     this.prompts.push({
-      when: function(response) {
+      when:     function(response) {
         return existing(response);
       },
-      type: 'confirm',
-      name: 'writeChild',
-      message: 'Overwrite existing child theme?',
-      default: 'no'
+      type:     'confirm',
+      name:     'writeChild',
+      message:  'Overwrite existing child theme?',
+      default:  'no'
     });
   },
   ask: function() {
@@ -177,11 +177,11 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
     this.copy('Gruntfile.js', 'Gruntfile.js');
 
     this.template('editorconfig', '.editorconfig');
-    this.template('gitignore', '.gitignore');
-    this.template('jshintrc', '.jshintrc');
-    this.template('bower.json', 'bower.json');
+    this.template('gitignore',    '.gitignore');
+    this.template('jshintrc',     '.jshintrc');
+    this.template('bower.json',   'bower.json');
     this.template('package.json', 'package.json');
-    //this.template('README.md', 'README.md');
+    //this.template('README.md',    'README.md');
   },
   writeThemeFiles:  function() {
     this.log.info('Writing theme files...');
@@ -198,9 +198,9 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
       } catch(e) {}
     }.bind(this);
 
-    var parLoc = path.join(this.props.web, 'wp-content/themes/genesis-parent-theme');
-    var childLoc = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
-    var writeChild = !existing(childLoc) || this.props.writeChild;
+    var parLoc      = path.join(this.props.web, 'wp-content/themes/genesis-parent-theme');
+    var childLoc    = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
+    var writeChild  = !existing(childLoc) || this.props.writeChild;
 
     this.directory('themes/genesis-parent-theme', parLoc);
 
@@ -211,14 +211,13 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
   cleanUp: function() {
     this.log.info('Cleaning up...');
 
-    var root = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
+    var root  = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
     var files = this.expandFiles('**/.gitkeep', {dot: true, cwd: root});
 
     for (var i = 0; i < files.length; i++) {
       var file = path.join(root, files[i]);
 
       fs.remove(file, function(err) {
-        console.log(file);
         if (err) return this.log.info( chalk.red(err) );
       });
     }
