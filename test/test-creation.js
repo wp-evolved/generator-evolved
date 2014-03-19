@@ -40,6 +40,7 @@ describe('theme generator', function () {
             'projShortName': 'ts',
             'authorName': 'Test Author',
             'authorURI': 'test-author.com',
+            'web': 'web',
             'projDescription': 'test site just for testing',
             'projVersion': '0.1.1'
         });
