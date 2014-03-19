@@ -1,4 +1,4 @@
-# generator-theme [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-theme.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-theme)
+# generator-genesis-theme [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-genesis-theme.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-genesis-theme)
 
 > A Yeoman generator for [Genesis WordPress][1] themeing.
 Genesis Theme is a simple pair of parent and child themes for use with Genesis WordPress.
@@ -112,47 +112,59 @@ For further reading on Bower and Grunt, checkout these posts
 * Get Up and Running with Grunt - http://coding.smashingmagazine.com/2013/10/29/get-up-running-grunt/
 * Twitter Bower & Grunt - http://gpiot.com/blog/twitter-bower-grunt-get-started-with-assets-management/
 
-### Working with the Parent theme.
+## Working with the Parent theme.
 
 The goal of the parent theme is to give a structured base for your projects but not to assume any design decisions. Making decisions in the parent theme can lead to bloat and unnecessary overrides, we want our projects to be lean and fast.
 
-#### Functions
+### Functions
 
 These are functions we find we use across all of our projects. It's not everything, since that could lead to the mentioned overrides, but it includes what we think is necessary.
 
-#### Templates
+### Templates
 
 To keep from repeating ourselves, we aren't using WP templates in the traditional sense. There's no reason to have to open and close every template with the same code, so instead these templates are used with includes in their respective parent pages (index.php, page.php, and single.php).
 
-#### Modules
+### Modules
 
 Modules are small chunks of content used throughout the project. The goal is to reuse our code and abstract out small differences.
 
-#### Styling
+### Styling
 
 Trick heading, there is none. There is a `style.css` file but it's only for recognizing the parent theme.
 
-### Working with the Child theme
+## Working with the Child theme
 
 The goal of the child theme is to setup the project specific elements. This is where we'll include the design specific decisions (and utilize Grunt). Feel free to edit, add and remove as necessary.
 
-#### Functions
+### Functions
 
-These are project specific functions, global variables, separate out the development and distribution assets, and require any outside functions.
+This is where we set up project specific functions and global variables; enqueue the development and distribution assets; and require any outside functions.
 
+### Templates & Modules
+
+Same as the templates and modules in the parent theme, this is where you want to add any new templates or modules you need for your project.
 
 ### Styling
 
 #### Bourbon and Neat
 
+We use Bourbon/Neat for special functions, css3 mixins, and our grid. Bourbon has many awesome functions and mixins not in the Sass core that make working with scss even easier (such as tint/darken, px to em, modular scale, retina images, etc). Neat makes setting up and using a grid a breaze, especially when using the included media mixin. Instead of filling your markup with grid hooks, all of your grid layouts reside in your existing hooks where it belongs.
+
 #### Base, Generic and Objects
+
+Based on InuitCSS, this is were the styling for our resets, base styles, abstractions and custom objects we take from project to project reside. Feel free to include whatever you do or don't need in the style.scss to keep your final size down.
 
 #### Modules and Layout
 
+Rather than mix the custom styles with those we carry from project to project, we break them up into visual styles in the modules directory and layout styles in the layout directory. We often break up the layout files based on the modules we're using, but we still want to keep visual and layout styles separate to make finding and adjusting them easier.
 
 ### Scripting
 
+To reduce http requests we limit our scripts to where they are needed and concatonate those that are used on the same pages. First we group them in directories based on where they will be called (header, footer, single posts, etc), then we break up and group the functions into single files based on their use (inits for libraries/plugins, custom page controls, etc). Grunt automatically goes through the directories and creates a corresponding file in dev/dist directories. We then enqueue those in functions.php.
+
 ### Images
+
+Due to the nature of images, we can't easily replace those that are uncompressed with those that are. Images should be placed in `assets/img/src` and you should link to the compressed images located in `assets/img/min` for all environments. We've found that the imagemin grunt plugin will continue to compress the images if you outright replace the original, so we've decided to separate the two to avoid any artifacting issues.
 
 ## License
 
