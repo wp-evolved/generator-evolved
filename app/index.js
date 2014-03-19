@@ -14,14 +14,16 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
     this.on('end', function () {
       this.config.save();
       this.log.info('Running ' + chalk.yellow('bower install') + ' & ' + chalk.yellow('npm install') + ' for you to install the required dependencies. If this fails, try running the command yourself.');
-      this.installDependencies({
-        bower:        true,
-        npm:          true,
-        skipMessage:  true,
-        callback:     function() {
-          this.log.ok('All done! Run ' + chalk.yellow('grunt build:dev') + ' and ' + chalk.yellow('grunt watch') + ' to get started!');
-        }.bind(this)
-      });
+      if (!this.options['skip-install']) {
+        this.installDependencies({
+          bower:        true,
+          npm:          true,
+          skipMessage:  true,
+          callback:     function() {
+            this.log.ok('All done! Run ' + chalk.yellow('grunt build:dev') + ' and ' + chalk.yellow('grunt watch') + ' to get started!');
+          }.bind(this)
+        });
+      }
     });
   },
   promptForName: function() {
