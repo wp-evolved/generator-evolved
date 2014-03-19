@@ -1,4 +1,4 @@
-# generator-theme [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-theme.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-theme)
+# generator-genesis-theme [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-genesis-theme.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-genesis-theme)
 
 > A Yeoman generator for [Genesis WordPress][1] themeing.
 Genesis Theme is a simple pair of parent and child themes for use with Genesis WordPress.
