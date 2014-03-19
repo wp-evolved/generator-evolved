@@ -4,5 +4,5 @@ node_js:
   - '0.10'
 before_install:
   - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-theme' ]; then cd .. && eval "mv $currentfolder generator-theme" && cd generator-theme; fi
+  - if [ "$currentfolder" != 'generator-genesis-theme' ]; then cd .. && eval "mv $currentfolder generator-genesis-theme" && cd generator-geneis-theme; fi
 
