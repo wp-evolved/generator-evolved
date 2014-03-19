@@ -173,7 +173,7 @@ if (!is_admin() && WP_ENV != 'local') add_action('wp_enqueue_scripts', 'load_pro
  * Uncomment and edit these as you need them
  */
 //require_once (TEMP_DIR . '/functions/cpt_example.php');
-//require_once (TEMP_DIR . '/functions/display-post-thumbnails.php')
+require_once( CHILD_SS_DIR . '/functions/display-post-thumbnails.php' )
 //require_once (TEMP_DIR . '/functions/gform_placeholder.php');
 //require_once (TEMP_DIR . '/functions/metabox/example-functions.php');
 //require_once (TEMP_DIR . '/functions/pagination.php');

@@ -1,10 +1,6 @@
 <li class="post-preview<?php if ( !has_post_thumbnail() ) { echo ' no-image'; } ?>">
 
-	<?php if ( has_post_thumbnail() ) : ?>
-	<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>" class="post-thumb">
-		<?php the_post_thumbnail('post-thumb'); ?>
-	</a>
-	<?php endif; ?>
+	<?php display_post_thumbnail( get_the_ID(), 'post-thumb' ); // name of the thumbnail; default is 'thumbnail' ?>
 
 	<article>
 		<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">

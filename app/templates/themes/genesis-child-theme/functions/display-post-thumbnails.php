@@ -4,14 +4,13 @@
  * Display post thumbnails
  */
 
-function display_post_thumbnail_src( $id = 0 ) { //get the src of image
+function display_post_thumbnail_src( $id = 0, $size = 'thumbnail' ) { //get the src of image
   $post = get_post( $id );
   $post_id = isset( $post->ID ) ? $post->ID : 0;
 
   $atturl         = '';
   $featured_image = '';
   $images         = '';
-  $size           = 'thumbnail';
 
   $images = get_children( array(
     'numberposts'    => 1,
@@ -40,11 +39,11 @@ function display_post_thumbnail_src( $id = 0 ) { //get the src of image
   }
 }
 
-function display_post_thumbnail( $id = 0 ) { //creates an img tag for use in post lists
+function display_post_thumbnail( $id = 0, $size = 'thumbnail' ) { //creates an img tag for use in post lists
   $post = get_post( $id );
   $post_id = isset( $post->ID ) ? $post->ID : 0;
 
-  if ( $src = display_post_thumbnail_src( $post_id ) ) {
+  if ( $src = display_post_thumbnail_src( $post_id, $size ) ) {
     if( $src == DEFAULT_PHOTO ) {
       $class = ' default-photo';
     } else {
