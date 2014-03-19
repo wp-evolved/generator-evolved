@@ -10,7 +10,6 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.prompts  = [];
     this.pkg      = require('../package.json');
-    this.bower    = require(path.join(this.env.cwd, 'bower.json'));
 
     this.on('end', function () {
       this.config.save();
@@ -28,7 +27,9 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
   promptForName: function() {
     var existing = function() {
       try {
-        return this.bower.name;
+        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+
+        return bower.name;
       } catch(e) {};
     }.bind(this);
 
@@ -45,7 +46,9 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
   promptForShortName: function() {
     var existing = function() {
       try {
-        return this.bower.shortName;
+        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+
+        return bower.shortName;
       } catch(e) {};
     }.bind(this);
 
@@ -62,7 +65,9 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
   promptForAuthorName: function() {
     var existing = function() {
       try {
-        return this.bower.author.name;
+        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+
+        return bower.author.name;
       } catch(e) {};
     }.bind(this);
 
@@ -78,7 +83,9 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
   promptForAuthorURI: function() {
     var existing = function() {
       try {
-        return this.bower.author.url
+        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+
+        return bower.author.url
       } catch(e) {};
     }.bind(this);
 
@@ -94,7 +101,9 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
   promptForDescription: function() {
     var existing = function() {
       try {
-        return this.bower.description;
+        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+
+        return bower.description;
       } catch(e) {};
     }.bind(this);
 
@@ -110,7 +119,9 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
   promptForVersion: function() {
     var existing = function() {
       try {
-        return this.bower.version;
+        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+
+        return bower.version;
       } catch(e) {};
     }.bind(this);
 
