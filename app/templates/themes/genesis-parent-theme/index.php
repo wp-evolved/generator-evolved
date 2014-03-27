@@ -5,16 +5,16 @@
 	<section class="content">
 
 	<?php if ( is_front_page() ) :
-		include_once('templates/tmpl-home.php');
+		include_once( 'templates/tmpl-home.php' );
 
 	elseif ( is_archive() ) :
-		include_once('templates/tmpl-archive.php');
+		include_once( 'templates/tmpl-archive.php' );
 
 	elseif ( is_404() ) :
-		include_once('templates/tmpl-error.php');
+		include_once( 'templates/tmpl-error.php' );
 
 	elseif ( is_search() ) :
-		include_once('templates/tmpl-results.php');
+		include_once( 'templates/tmpl-results.php' );
 
 	else : ?>
 

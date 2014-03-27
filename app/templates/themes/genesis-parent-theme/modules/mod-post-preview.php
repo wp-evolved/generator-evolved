@@ -1,4 +1,4 @@
-<li class="post-preview<?php if ( !has_post_thumbnail() ) { echo ' no-image'; } ?>">
+<li class="post-preview<?php if ( ! has_post_thumbnail() ) { echo ' no-image'; } ?>">
 
 	<?php display_post_thumbnail( get_the_ID(), 'post-thumb' ); // name of the thumbnail; default is 'thumbnail' ?>
 
@@ -7,7 +7,7 @@
 			<h3><?php the_title(); ?></h3>
 		</a>
 		<div class="post-meta">
-			<span class="post-date"><?php the_time('F j, Y'); ?></span>
+			<span class="post-date"><?php the_time( 'F j, Y' ); ?></span>
 			<span class="post-author"><?php the_author(); ?></span>
 		</div>
 		<?php the_excerpt(); ?>
