@@ -6,6 +6,7 @@
  */
 define( 'CHILD_SS_URI', get_stylesheet_directory_uri() );
 define( 'CHILD_SS_DIR', get_stylesheet_directory() );
+define( 'DEFAULT_PHOTO', CHILD_SS_URI .'/assets/img/min/default-photo.gif' );
 
 //define( 'TYPEKIT', '123456' );
 //define( 'HFJ_ACCOUNT', '123456' );
@@ -75,25 +76,33 @@ add_action( 'init', 'add_post_formats' );
 /**
  * Remove brakcets from ellipse
  */
-function excerpt_ellipse( $text) {
+function excerpt_ellipse( $text ) {
 	return str_replace( '[...]', '&#8230;', $text );
 }
 add_filter( 'get_the_excerpt', 'excerpt_ellipse' );
 
 
-/**
+/** IMAGES
+ *
  * Add Post Thumbnails
  */
 add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size(50, 50, true );
-add_image_size( 'preview-img', 250, 140, true );
+set_post_thumbnail_size( 50, 50, true );
+
+/*
+ *  ADD SUPPORT FOR VARIOUS THUMBNAIL SIZES
+ *  http://codex.wordpress.org/Function_Reference/add_image_size
+    ---------------------------------------------------------------------------------------------------- */
+    if ( function_exists( 'add_image_size' ) ) {
+      add_image_size('post-thumb', 250, 140, true); //(cropped)
+    }
 
 
 /**
  * Remove Yoast SEO Canonical URLs
  * http://wordpress.org/support/topic/plugin-wordpress-seo-by-yoast-disbale-on-specific-pages#post-4008241
  */
-function wpseo_canonical_replace( $canonical) {
+function wpseo_canonical_replace( $canonical ) {
 	global $post;
 	if ( ! is_front_page() && has_post_format( 'video', $post->ID ) ) {
 		$section	= get_the_category( $post->ID );
@@ -164,9 +173,10 @@ if (!is_admin() && 'local' != WP_ENV ) add_action( 'wp_enqueue_scripts', 'load_p
  * Uncomment and edit these as you need them
  */
 //require_once( TEMP_DIR . '/functions/cpt_example.php' );
+require_once( CHILD_SS_DIR . '/functions/display-post-thumbnails.php' )
 //require_once( TEMP_DIR . '/functions/gform_placeholder.php' );
+//require_once( TEMP_DIR . '/functions/metabox/example-functions.php' );
 //require_once( TEMP_DIR . '/functions/pagination.php' );
 //require_once( TEMP_DIR . '/functions/Tax-meta-class/example-tax-meta.php' );
-//require_once( TEMP_DIR . '/functions/metabox/example-functions.php' );
 
 ?>
