@@ -58,9 +58,14 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
       required: true,
       type:     'text',
       name:     'projShortName',
-      message:  'Project short name (e.g. ms)',
+      message:  'Project short name (e.g. mscom)',
       default:  function() {
-        return existing() || path.basename(this.env.cwd).replace(/[^A-Z]/g, '').toLowerCase();
+        var ext = path.extname(this.env.cwd);
+        var extname = ext.replace('.','');
+        var base = path.basename(this.env.cwd).replace(ext, '');
+        var basename = ( /[A-Z]/.test(base) ) ? base.replace(/[^A-Z]/g, '') : base.charAt(0);
+
+        return existing() || ( basename + extname ).toLowerCase();
       }.bind(this)
     });
   },
