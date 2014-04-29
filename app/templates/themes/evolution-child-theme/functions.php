@@ -61,15 +61,6 @@ function my_class_names( $classes ) {
 
 
 /**
-  * Post Formats Support
-  */
-function add_post_formats() {
-	add_theme_support( 'post-formats', array( 'video' ) );
-}
-add_action( 'init', 'add_post_formats' );
-
-
-/**
  * Remove brakcets from ellipse
  */
 function excerpt_ellipse( $text ) {
@@ -92,22 +83,6 @@ set_post_thumbnail_size( 50, 50, true );
     if ( function_exists( 'add_image_size' ) ) {
       add_image_size('post-thumb', 250, 140, true); //(cropped)
     }
-
-
-/**
- * Remove Yoast SEO Canonical URLs
- * http://wordpress.org/support/topic/plugin-wordpress-seo-by-yoast-disbale-on-specific-pages#post-4008241
- */
-function wpseo_canonical_replace( $canonical ) {
-	global $post;
-	if ( ! is_front_page() && has_post_format( 'video', $post->ID ) ) {
-		$section	= get_the_category( $post->ID );
-		$section_id	= $section[0]->term_id;
-		$canonical	= get_category_link( $section_id );
-	}
-	return $canonical;
-}
-add_filter( 'wpseo_canonical', 'wpseo_canonical_replace' );
 
 
 /**
