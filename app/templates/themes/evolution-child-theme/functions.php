@@ -7,6 +7,7 @@
 define( 'CHILD_SS_URI', get_stylesheet_directory_uri() );
 define( 'CHILD_SS_DIR', get_stylesheet_directory() );
 define( 'DEFAULT_PHOTO', CHILD_SS_URI .'/assets/img/min/default-photo.gif' );
+define( 'GOOGLE_PLUS_AUTHOR', '' );
 
 //define( 'TYPEKIT', '123456' );
 //define( 'HFJ_ACCOUNT', '123456' );
@@ -24,17 +25,12 @@ if ( function_exists( 'get_wpseo_options' ) ) {
     define( 'TWITTER_USERNAME', $get_options_wpseo_social['twitter_site'] );
     define( 'FB_PAGE', $get_options_wpseo_social['facebook_site'] );
 
-    $plus_author_link = get_user_meta( $get_options_wpseo_social['plus-author'], 'googleplus', TRUE );
-    $plus_author_link = ( '/' == substr( $plus_author_link, -1) ) ? $plus_author_link . '?rel=author' : $plus_author_link . '/?rel=author';
-    define( 'GOOGLE_PLUS_AUTHOR', $plus_author_link);
-
     $plus_publisher_link = $get_options_wpseo_social['plus-publisher'];
     $plus_publisher_link = ( '/' == substr( $plus_publisher_link, -1) ) ? $plus_publisher_link . '?rel=publisher' : $plus_publisher_link . '/?rel=publisher';
     define( 'GOOGLE_PLUS_PUBLISHER', $plus_publisher_link );
 } else {
     define( 'TWITTER_USERNAME', '' );
     define( 'FB_PAGE', '' );
-    define( 'GOOGLE_PLUS_AUTHOR', '' );
     define( 'GOOGLE_PLUS_PUBLISHER', '' );
 }
 
