@@ -1,12 +1,12 @@
-# generator-genesis-theme [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-genesis-theme.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-genesis-theme)
+# generator-genesis-evolution [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-genesis-evolution.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-genesis-evolution)
 
-> A Yeoman generator for [Genesis WordPress][1] themeing.
-Genesis Theme is a simple pair of parent and child themes for use with Genesis WordPress.
+> A Yeoman generator for [Genesis Skeleton - WordPress][1] themeing.
+Genesis Skeleton - Evolution is a simple pair of parent and child themes for use with Genesis Skeleton - WordPress.
 
 ## Features
 
-* Yeoman generator makes installation (or updating) on an existing Genesis project simple.
-* Parent theme creates a unified base for all Genesis projects without making too many design decisions.
+* Yeoman generator makes installation (or updating) on an existing Genesis Skeleton project simple.
+* Parent theme creates a unified base for all Genesis Skeleton projects without making too many design decisions.
 * Child theme takes control of the project's specific design requirements utilizing Bourbon for Sass utilities and Neat for grid alignments.
 * Utilizes Bower for easy dependency management.
 * Utilizes Grunt for an integrated CLI workflow with Genesis.
@@ -16,23 +16,23 @@ Genesis Theme is a simple pair of parent and child themes for use with Genesis W
 
 ### Start your project with Genesis
 
-Follow the Genesis setup instructions to get started.
+Follow the [Genesis Skeleton - Wordpress setup instructions](https://github.com/genesis/wordpress#genesis-wordpress) to get started.
 
 ### Theme Generator and Grunt
 
-Install generator-genesis-theme and Grunt CLI globally (you should already have Node, NPM, Yeoman, Bower and Genesis Wordpress installed from the previous step)
+Install generator-genesis-evolution and Grunt CLI globally (you should already have Node, NPM, Yeoman, Bower and Genesis Skeleton - Wordpress installed from the previous step)
 
 ```
-$ npm install -g generator-genesis-theme grunt-cli
+$ npm install -g generator-genesis-evolution grunt-cli
 ```
 
-CD to your project and initiate the Gensis Theme generator
+CD to your project and initiate the Gensis Evolution generator
 
 ```
-$ yo genesis-theme
+$ yo genesis-evolution
 ```
 
-It'll ask you a series of questions (many should already be pre-populated from the Genesis setup).
+It'll ask you a series of questions (many should already be pre-populated from the Genesis Skeleton setup).
 
 ## Getting Started
 
@@ -62,7 +62,7 @@ This installs the sass gem for sass compilation.
 
 ### Get started with Grunt
 
-Grunt isn't any more difficult to set up and use than Genesis. If you're comfortable with Genesis, you should be able to manage working with Grunt.
+Grunt isn't any more difficult to set up and use than Genesis. If you're comfortable with Genesis Skeleton, you should be able to manage working with Grunt.
 
 #### Main Tasks
 
