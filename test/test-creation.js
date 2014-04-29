@@ -12,7 +12,7 @@ describe('theme generator', function () {
                 return done(err);
             }
 
-            this.app = helpers.createGenerator('genesis-theme:app', [
+            this.app = helpers.createGenerator('genesis-evolution:app', [
                 '../../app'
             ]);
             done();
@@ -31,7 +31,7 @@ describe('theme generator', function () {
             '.jshintrc',
             '.editorconfig',
             'Gruntfile.js',
-            'web/wp-content/themes/genesis-parent-theme',
+            'web/wp-content/themes/evolution-parent-theme',
             'web/wp-content/themes/ts-theme'
         ];
 

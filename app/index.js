@@ -6,7 +6,7 @@ var fs      = require('fs-extra');
 var chalk   = require('chalk');
 
 
-var TestGeneratorGenerator = yeoman.generators.Base.extend({
+var EvolutionGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.prompts  = [];
     this.pkg      = require('../package.json');
@@ -211,14 +211,14 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
       } catch(e) {}
     }.bind(this);
 
-    var parLoc      = path.join(this.props.web, 'wp-content/themes/genesis-parent-theme');
+    var parLoc      = path.join(this.props.web, 'wp-content/themes/evolution-parent-theme');
     var childLoc    = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
     var writeChild  = !existing(childLoc) || this.props.writeChild;
 
-    this.directory('themes/genesis-parent-theme', parLoc);
+    this.directory('themes/evolution-parent-theme', parLoc);
 
     if (writeChild) {
-      this.directory('themes/genesis-child-theme', childLoc);
+      this.directory('themes/evolution-child-theme', childLoc);
     }
   },
   cleanUp: function() {
@@ -237,4 +237,4 @@ var TestGeneratorGenerator = yeoman.generators.Base.extend({
   }
 });
 
-module.exports = TestGeneratorGenerator;
+module.exports = EvolutionGenerator;

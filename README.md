@@ -9,12 +9,12 @@ Genesis Skeleton - Evolution is a simple pair of parent and child themes for use
 * Parent theme creates a unified base for all Genesis Skeleton projects without making too many design decisions.
 * Child theme takes control of the project's specific design requirements utilizing Bourbon for Sass utilities and Neat for grid alignments.
 * Utilizes Bower for easy dependency management.
-* Utilizes Grunt for an integrated CLI workflow with Genesis.
+* Utilizes Grunt for an integrated CLI workflow with Genesis Skeleton.
 
 
 ## Installation
 
-### Start your project with Genesis
+### Start your project with Genesis Skeleton
 
 Follow the [Genesis Skeleton - Wordpress setup instructions](https://github.com/genesis/wordpress#genesis-wordpress) to get started.
 
@@ -62,7 +62,7 @@ This installs the sass gem for sass compilation.
 
 ### Get started with Grunt
 
-Grunt isn't any more difficult to set up and use than Genesis. If you're comfortable with Genesis Skeleton, you should be able to manage working with Grunt.
+Grunt isn't any more difficult to set up and use than Genesis Skeleton. If you're comfortable with Genesis Skeleton, you should be able to manage working with Grunt.
 
 #### Main Tasks
 
