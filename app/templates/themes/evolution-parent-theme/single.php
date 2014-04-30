@@ -11,7 +11,11 @@
 			<?php the_content(); ?>
 		</article>
 
-		<?php include_once( PARENT_TMPL_DIR . '/modules/mod-comments.php' ); ?>
+		<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
+
+			<?php comments_template(); ?>
+
+		<?php endif; ?>
 
 	<?php endwhile; ?>
 
