@@ -4,16 +4,20 @@
 
 	<section class="content">
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 		<article class="post-article">
 			<h1 class="post-title"><?php the_title(); ?></h1>
 			<?php the_content(); ?>
 		</article>
 
-		<?php include_once( PARENT_TMPL_DIR . '/modules/mod-comments.php' ); ?>
+		<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
 
-	<?php endwhile; endif; ?>
+			<?php comments_template(); ?>
+
+		<?php endif; ?>
+
+	<?php endwhile; ?>
 
 	</section>
 
