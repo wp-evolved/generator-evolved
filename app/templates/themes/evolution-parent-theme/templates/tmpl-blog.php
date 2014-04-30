@@ -6,17 +6,16 @@
 	$blog = array(
 		'paged' => $paged
 	);
+
 	query_posts( $blog );
 	if( have_posts() ) while ( have_posts() ) : the_post();
-    include_once( PARENT_TMPL_DIR . '/modules/mod-post-preview.php' );
-    endwhile;
 ?>
+
+	<?php include_once( PARENT_TMPL_DIR . '/modules/mod-post-preview.php' ); ?>
+
+<?php endwhile; ?>
 </ul>
 
-<?php
-if ( function_exists( 'pagination' ) ) {
-    pagination();
-}
-?>
+<?php if ( function_exists( 'pagination' ) ) { pagination(); } ?>
 
 <?php wp_reset_query(); ?>
