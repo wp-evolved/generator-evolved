@@ -37,8 +37,13 @@
 /**
  * Basic button modifiers
  */
-.btn--sml { font-size: .75em; }
-.btn--lrg { font-size: 1.50em; }
+.btn--sml {
+  font-size: .75em;
+}
+
+.btn--lrg {
+  font-size: 1.50em;
+}
 
 .btn--full {
   display: block;

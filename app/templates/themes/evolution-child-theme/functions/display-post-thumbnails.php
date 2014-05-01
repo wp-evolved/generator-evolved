@@ -1,12 +1,11 @@
 <?php
 
-/*
- * Display post thumbnails
+/**
+ * Retrieve the post thumbnail SRC
  */
-
-function display_post_thumbnail_src( $id = 0, $size = 'thumbnail' ) { //get the src of image
-  $post = get_post( $id );
-  $post_id = isset( $post->ID ) ? $post->ID : 0;
+function display_post_thumbnail_src( $id = 0, $size = 'thumbnail' ) {
+  $post     = get_post( $id );
+  $post_id  = isset( $post->ID ) ? $post->ID : 0;
 
   $attsrc         = '';
   $atturl         = '';
@@ -43,24 +42,30 @@ function display_post_thumbnail_src( $id = 0, $size = 'thumbnail' ) { //get the 
   }
 }
 
-function display_post_thumbnail( $id = 0, $size = 'thumbnail', $image_link = 'permalink' ) { //creates an img tag for use in post lists
-  $post = get_post( $id );
-  $post_id = isset( $post->ID ) ? $post->ID : 0;
+/**
+ * Display the post thumbnail
+*/
+function display_post_thumbnail( $id = 0, $size = 'thumbnail', $image_link = 'permalink' ) {
+  $post     = get_post( $id );
+  $post_id  = isset( $post->ID ) ? $post->ID : 0;
 
-  if ( $src = display_post_thumbnail_src( $post_id, $size ) ) {
-    if( $src == DEFAULT_PHOTO ) {
-      $class = ' default-photo';
-      $link = get_permalink( $post_id );
-      $img_src = $src;
+  if ( $src == display_post_thumbnail_src( $post_id, $size ) ) {
+
+    if ( $src == DEFAULT_PHOTO ) {
+      $class    = ' default-photo';
+      $link     = get_permalink( $post_id );
+      $img_src  = $src;
     } else {
-      $class = '';
-      $img_src = $src[0];
-      if( 'imagelink' == $image_link ) {
+      $class    = '';
+      $img_src  = $src[0];
+
+      if ( 'imagelink' == $image_link ) {
         $link = $src[1];
       } else {
         $link = get_permalink( $post_id );
       }
     }
+
     echo '<a href="' . $link . '" title="Permanent Link to ' . esc_attr( get_the_title( $post_id ) ) . '" class="post-thumb' . $class . '" itemprop="image"><img src="' . $img_src . '" alt="' . esc_attr( get_the_title( $post_id ) ) . '" class="attachment-post-thumbnail wp-post-image"></a>';
   }
 }

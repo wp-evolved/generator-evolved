@@ -10,8 +10,8 @@
 .fr { float: right; }
 .fl { float: left; }
 
-.text-center{
-  text-align:center;
+.text-center {
+  text-align: center;
 }
 
 
@@ -42,8 +42,8 @@
  * Mute an object by reducing its opacity.
  */
 .muted {
-  opacity:0.5;
-  filter:alpha(opacity = 50);
+  opacity: 0.5;
+  filter: alpha(opacity = 50);
 }
 
 
@@ -65,7 +65,7 @@
  *
  */
 .go:after {
-  content:" »";
+  content: " »";
 }
 
 
@@ -73,15 +73,22 @@
  * Apply capital case to an element (usually a `strong`).
  */
 .caps {
-  text-transform:uppercase;
+  text-transform: uppercase;
 }
 
 
 /**
  * Hide content off-screen without resorting to `display:none;`
  */
-.accessibility              { position: absolute; left: -99999px; }
-[dir=rtl] .accessibility    { left: auto; right: -99999px; }
+.accessibility {
+  left: -99999px;
+  position: absolute;
+}
+
+[dir=rtl] .accessibility {
+  left: auto;
+  right: -99999px;
+}
 
 
 /**
@@ -91,8 +98,11 @@
   position: absolute;
   left: -9999px;
 }
-@each $state in palm, lap, portable, desk{
+
+@each $state in palm, lap, portable, desk {
+
   @include media-query(#{$state}) {
+
     .hide--#{$state} {
       position: absolute;
       left: -9999px;

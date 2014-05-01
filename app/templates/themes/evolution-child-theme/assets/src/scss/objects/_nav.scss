@@ -34,6 +34,7 @@
   }
 }
 
+
 /**
  * Sub-menu abstraction as per: csswizardry.com/2011/09/the-menu-abstraction
  * When used on an `ol` or `ul`, this class throws the list into horizontal mode
@@ -87,10 +88,10 @@
 .nav--stacked {
 
   > li {
-    display:list-item;
+    display: list-item;
 
     > a {
-      display:block;
+      display: block;
     }
   }
 }

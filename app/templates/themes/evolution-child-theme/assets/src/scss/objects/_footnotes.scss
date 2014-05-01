@@ -6,17 +6,16 @@
  * E.g.:
  *
    <ol class="footnotes">
-   	<li>Footnote text would go here</li>
-   	<li>Another footnote would go here</li>
+    <li>Footnote text would go here</li>
+    <li>Another footnote would go here</li>
    </ol>
  *
  * Demo:
  *
  */
-
 .footnotes {
-	border-top: 1px solid $color-primary;
-	font-size: $size-zeta;
-	padding-bottom: $base-spacing-unit;
-	padding-top: $base-spacing-unit;
+  border-top: 1px solid $color-primary;
+  font-size: $size-zeta;
+  padding-bottom: $base-spacing-unit;
+  padding-top: $base-spacing-unit;
 }

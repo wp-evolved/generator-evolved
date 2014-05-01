@@ -2,26 +2,26 @@
 
 <div role="main" class="main-container">
 
-	<section class="content">
+  <section class="content">
 
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+  <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-		<article class="post-article">
-			<h1 class="post-title"><?php the_title(); ?></h1>
-			<?php the_content(); ?>
-		</article>
+    <article class="post-article">
+      <h1 class="post-title"><?php the_title(); ?></h1>
+      <?php the_content(); ?>
+    </article>
 
-		<?php if ( comments_open() || '0' != get_comments_number() ) : ?>
+    <?php if ( comments_open() || '0' != get_comments_number() ) : ?>
 
-			<?php comments_template(); ?>
+      <?php comments_template(); ?>
 
-		<?php endif; ?>
+    <?php endif; ?>
 
-	<?php endwhile; ?>
+  <?php endwhile; ?>
 
-	</section>
+  </section>
 
-	<?php get_sidebar(); ?>
+  <?php get_sidebar(); ?>
 
 </div>
 
