@@ -29,7 +29,6 @@ describe('theme generator', function () {
             ['bower.json', /"name": "temp-site"/],
             ['package.json', /"name": "temp-site"/],
             '.jshintrc',
-            '.editorconfig',
             'Gruntfile.js',
             'web/wp-content/themes/evolution-parent-theme',
             'web/wp-content/themes/ts-theme'

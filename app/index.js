@@ -194,12 +194,10 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
 
     this.copy('Gruntfile.js', 'Gruntfile.js');
 
-    this.template('editorconfig', '.editorconfig');
     this.template('gitignore',    '.gitignore');
     this.template('jshintrc',     '.jshintrc');
     this.template('bower.json',   'bower.json');
     this.template('package.json', 'package.json');
-    //this.template('README.md',    'README.md');
   },
   writeThemeFiles:  function() {
     this.log.info('Writing theme files...');
