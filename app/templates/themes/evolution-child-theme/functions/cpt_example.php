@@ -49,11 +49,17 @@ function cpt_example() {
       'exclude_from_search' => false,
       'show_ui'             => true,
       'query_var'           => true,
-      'rewrite'             => true,
+      /* This controls the leading slug for your posts */
+      'rewrite'             => array(
+        'slug'              => 'example',
+        'with_front'        => false
+      ),
       'capability_type'     => 'post',
       'hierarchical'        => false,
+      /* this is what order you want it to appear in on the left hand side menu */
+      //'menu_position'       => 40,
       /* the next one is important, it tells what's enabled in the post editor */
-      'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes', 'sticky' ),
+      'supports'            => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes', 'sticky' ),
       //'register_meta_box_cb' => 'add_cpt_metaboxes'
     ) /* end of options */
   ); /* end of register post type */
