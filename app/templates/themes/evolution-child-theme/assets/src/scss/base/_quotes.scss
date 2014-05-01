@@ -5,8 +5,8 @@
  * If English quotes are set in `_vars.scss`, define them here.
  */
 @if $english-quotes == true {
-  $open-quote:    “ !global;
-  $close-quote:   ” !global;
+  $open-quote: “ !global;
+  $close-quote: ” !global;
 }
 
 
@@ -24,6 +24,7 @@ q {
     content: "‘";
     content: open-quote;
   }
+
   &:after {
     content: "’";
     content: close-quote;
@@ -33,6 +34,7 @@ q {
     content: "“";
     content: open-quote;
   }
+
   q:after {
     content: "”";
     content: close-quote;

@@ -43,7 +43,7 @@ $arrow:         $arrow-size - $arrow-border;
 
   &:before,
   &:after {
-    bottom:100%;
+    bottom: 100%;
   }
 }
 
@@ -107,11 +107,11 @@ $arrow:         $arrow-size - $arrow-border;
   @extend %arrow;
 
   &:before {
-    left:$arrow;
+    left: $arrow;
   }
 
   &:after {
-    left:$border;
+    left: $border;
   }
 }
 

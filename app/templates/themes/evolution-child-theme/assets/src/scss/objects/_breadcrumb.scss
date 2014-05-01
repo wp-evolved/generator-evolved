@@ -15,7 +15,7 @@
  *
  */
 .breadcrumb > li + li:before {
-  content:  "&#58;&#58; ";
+  content: "&#58;&#58; ";
 }
 
 
@@ -31,7 +31,7 @@
  *
  */
 .breadcrumb--path > li + li:before {
-  content:  "/ ";
+  content: "/ ";
 }
 
 
@@ -39,7 +39,7 @@
  * Denote the root of the tree.
  */
 .breadcrumb__root {
-  font-weight:  bold;
+  font-weight: bold;
 }
 
 
@@ -55,5 +55,5 @@
  *
  */
 .breadcrumb > li + li[data-breadcrumb]:before {
-  content:  attr(data-breadcrumb)" ";
+  content: attr(data-breadcrumb)" ";
 }

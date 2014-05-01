@@ -36,6 +36,7 @@
   }
 }
 
+
 /**
  * Reversed image location (right instead of left).
  */
@@ -43,7 +44,7 @@
   float: right;
   margin-left: $base-spacing-unit;
 
-  /**
+/**
  * `.img`s in `.islet`s need an appropriately sized margin.
  */
   .islet & {

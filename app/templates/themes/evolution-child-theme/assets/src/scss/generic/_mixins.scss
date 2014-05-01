@@ -18,16 +18,6 @@
 
 
 /**
- * Better Image Replacement
- */
-@mixin hidden-text {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-
-/**
  * Stylable Ordered Lists
  *
  * Prefixes each item w/ a counter based on all items in the parent
@@ -63,21 +53,6 @@
       width: 1.625em;
     }
   }
-}
-
-
-/**
- * Create vendor-prefixed CSS in one go, e.g.
- *
-  @include vendor(border-radius, 4px);`
- *
- */
-@mixin vendor($property, $value...) {
-  -webkit-#{$property}: $value;
-     -moz-#{$property}: $value;
-      -ms-#{$property}: $value;
-       -o-#{$property}: $value;
-          #{$property}: $value;
 }
 
 
@@ -163,23 +138,23 @@
     @extend %arrow--far;
 
     &:before {
-        border-left-color: $border-color;
+      border-left-color: $border-color;
     }
 
     &:after {
-        border-left-color: $arrow-color;
+      border-left-color: $arrow-color;
     }
 
     @if $arrow-location == top {
-        @extend %arrow--upper;
+      @extend %arrow--upper;
     }
 
     @if $arrow-location == center {
-        @extend %arrow--middle;
+      @extend %arrow--middle;
     }
 
     @if $arrow-location == bottom {
-        @extend %arrow--lower;
+      @extend %arrow--lower;
     }
   }
 
@@ -231,57 +206,5 @@
     @if $arrow-location == bottom {
       @extend %arrow--lower;
     }
-  }
-}
-
-
-/**
- * Media query mixin.
- *
- * It’s not great practice to define solid breakpoints up-front, preferring to
- * modify your design when it needs it, rather than assuming you’ll want a
- * change at ‘mobile’. However, as inuit.css is required to take a hands off
- * approach to design decisions, this is the closest we can get to baked-in
- * responsiveness. It’s flexible enough to allow you to set your own breakpoints
- * but solid enough to be frameworkified.
- *
- * We define some broad breakpoints in our vars file that are picked up here
- * for use in a simple media query mixin. Our options are:
- *
- * palm
- * lap
- * lap-and-up
- * portable
- * desk
- *
- * Not using a media query will, naturally, serve styles to all devices.
- *
- * `@include media-query(palm){ [styles here] }`
- *
- * We work out your end points for you:
- */
-$palm-end:  $lap-start - 1px;
-$lap-end:   $desk-start - 1px;
-
-@mixin media-query($media-query) {
-
-  @if $media-query == palm {
-    @media only screen and (max-width:$palm-end) { @content; }
-  }
-
-  @if $media-query == lap {
-    @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
-  }
-
-  @if $media-query == lap-and-up {
-    @media only screen and (min-width:$lap-start) { @content; }
-  }
-
-  @if $media-query == portable {
-    @media only screen and (max-width:$lap-end) { @content; }
-  }
-
-  @if $media-query == desk {
-    @media only screen and (min-width:$desk-start) { @content; }
   }
 }
