@@ -12,13 +12,13 @@ And constructed with these guidelines:
 
 For more information on semantic versioning, please visit http://semver.org/.
 
-## v0.2.0 - May 5, 2014
+## v0.2.0 - May 1, 2014
 
 Updating for Sass v3.3, Bourbon v4.* and Neat v1.6.*.
 
 **This is a backward incompatible change. Continue to use v0.1.* until you update Sass to v3.3 or later**
 
-## v0.1.0 - May 5, 2014
+## v0.1.0 - May 1, 2014
 
 Initial Release of the Evolution Generator for Genesis Skeleton - WordPress
 
