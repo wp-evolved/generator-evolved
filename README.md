@@ -16,11 +16,11 @@ Genesis Skeleton - Evolution is a simple pair of parent and child themes for use
 
 ### Start your project with Genesis Skeleton
 
-Follow the [Genesis Skeleton - Wordpress setup instructions](https://github.com/genesis/wordpress#genesis-wordpress) to get started.
+Follow the [Genesis Skeleton - WordPress setup instructions](https://github.com/genesis/wordpress#genesis-wordpress) to get started.
 
 ### Theme Generator and Grunt
 
-Install generator-genesis-evolution and Grunt CLI globally (you should already have Node, NPM, Yeoman, Bower and Genesis Skeleton - Wordpress installed from the previous step)
+Install generator-genesis-evolution and Grunt CLI globally (you should already have Node, NPM, Yeoman, Bower and Genesis Skeleton - WordPress installed from the previous step)
 
 ```
 $ npm install -g generator-genesis-evolution grunt-cli
