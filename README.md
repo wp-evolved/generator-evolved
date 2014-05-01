@@ -34,6 +34,15 @@ $ yo genesis-evolution
 
 It'll ask you a series of questions (many should already be pre-populated from the Genesis Skeleton setup).
 
+#### Install Notes
+
+When running the Evolution generator for the first time, it will overwrite the following files created by the Genesis Skeleton and warn you. This is expected.
+
+* .gitignore
+* bower.json
+
+If you run the generator a second time (to keep up to date for instance) it will make updates to any of the included files that have been updated since the generator was last run. This is also expected, but **be sure to read the changelog before updating and to reply `NO` when asked to overwrite the child theme**. If you have any concerns or questions after the generator has finished, view your git diff.
+
 ## Getting Started
 
 ### Install Dev Dependencies
@@ -166,6 +175,10 @@ To reduce http requests we limit our scripts to where they are needed and concat
 
 Due to the nature of images, we can't easily replace those that are uncompressed with those that are. Images should be placed in `assets/img/src` and you should link to the compressed images located in `assets/img/min` for all environments. We've found that the imagemin grunt plugin will continue to compress the images if you outright replace the original, so we've decided to separate the two to avoid any artifacting issues.
 
+## Version
+
+This generator is currently considered unstable. Things will be moving while it gets sorted out. Be sure to read [the changelog] before updating.
+
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
@@ -175,3 +188,4 @@ Due to the nature of images, we can't easily replace those that are uncompressed
 [3]: http://nodejs.org/
 [4]: http://bower.io/
 [5]: https://help.github.com/articles/create-a-repo
+[6]: https://github.com/jimmynotjim/generator-genesis-evolution/blob/master/CHANGELOG.md
