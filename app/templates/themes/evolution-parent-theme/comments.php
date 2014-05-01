@@ -17,7 +17,7 @@
     if ( have_comments() ) :
   ?>
 
-    <h2 class="comments__title">Leave a Comment</h2>
+    <h2 class="comments__title">Comments</h2>
 
     <?php
       /**
