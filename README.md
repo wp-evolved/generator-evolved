@@ -177,7 +177,7 @@ Due to the nature of images, we can't easily replace those that are uncompressed
 
 ## Version
 
-This generator is currently considered unstable. Things will be moving while it gets sorted out. Be sure to read [the changelog] before updating.
+This generator is currently considered unstable. Things will be moving while it gets sorted out. Be sure to read [the changelog][6] before updating.
 
 ## License
 
