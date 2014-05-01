@@ -66,6 +66,7 @@
   }
 }
 
+
 /**
  * Set up Batch icon font
  */
@@ -86,9 +87,18 @@
   }
 }
 
+
 /**
  * Icon size modifiers.
  */
-.i--large   { font-size: 32px; }
-.i--huge    { font-size: 64px; }
-.i--natural { font-size: inherit; }
+.i--large {
+  font-size: 32px;
+}
+
+.i--huge {
+  font-size: 64px;
+}
+
+.i--natural {
+  font-size: inherit;
+}

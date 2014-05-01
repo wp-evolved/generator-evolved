@@ -163,23 +163,23 @@
     @extend %arrow--far;
 
     &:before {
-        border-left-color: $border-color;
+      border-left-color: $border-color;
     }
 
     &:after {
-        border-left-color: $arrow-color;
+      border-left-color: $arrow-color;
     }
 
     @if $arrow-location == top {
-        @extend %arrow--upper;
+      @extend %arrow--upper;
     }
 
     @if $arrow-location == center {
-        @extend %arrow--middle;
+      @extend %arrow--middle;
     }
 
     @if $arrow-location == bottom {
-        @extend %arrow--lower;
+      @extend %arrow--lower;
     }
   }
 

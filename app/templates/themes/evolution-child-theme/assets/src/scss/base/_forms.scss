@@ -118,6 +118,7 @@ label,
   list-style: none;
   margin: 0;
 }
+
   /*
    * Labels in check-lists
    */
@@ -161,10 +162,11 @@ label,
  * it reappears.
  *
  */
-/*small*/.extra-help {
+.extra-help {
   display: inline-block;
   visibility: hidden;
 }
+
 .text-input:active + .extra-help,
 .text-input:focus + .extra-help {
   visibility: visible;
