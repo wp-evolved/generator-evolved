@@ -7,32 +7,15 @@
 define( 'CHILD_SS_URI', get_stylesheet_directory_uri() );
 define( 'CHILD_SS_DIR', get_stylesheet_directory() );
 define( 'DEFAULT_PHOTO', CHILD_SS_URI .'/assets/img/min/default-photo.gif' );
-define( 'GOOGLE_PLUS_AUTHOR', '' );
-define( 'FB_APP_ID', '' );
 
 //define( 'TYPEKIT', '123456' );
 //define( 'HFJ_ACCOUNT', '123456' );
 //define( 'HFJ_PROJECT', 123456);
-
-
-/**
- * Use Yoast SEO Plugin to create these constants
- * http://wordpress.org/plugins/wordpress-seo/
- * https://gist.github.com/germanny/6222479
-*/
-if ( function_exists( 'get_wpseo_options' ) ) {
-    $get_options_wpseo_social = get_option( 'wpseo_social' );
-    define( 'TWITTER_USERNAME', $get_options_wpseo_social['twitter_site'] );
-    define( 'FB_PAGE', $get_options_wpseo_social['facebook_site'] );
-
-    $plus_publisher_link = $get_options_wpseo_social['plus-publisher'];
-    $plus_publisher_link = ( '/' == substr( $plus_publisher_link, -1) ) ? $plus_publisher_link . '?rel=publisher' : $plus_publisher_link . '/?rel=publisher';
-    define( 'GOOGLE_PLUS_PUBLISHER', $plus_publisher_link );
-} else {
-    define( 'TWITTER_USERNAME', '' );
-    define( 'FB_PAGE', '' );
-    define( 'GOOGLE_PLUS_PUBLISHER', '' );
-}
+//define( 'GOOGLE_PLUS_AUTHOR', '' );
+//define( 'FB_APP_ID', '' );
+//define( 'TWITTER_USERNAME', '' );
+//define( 'FB_PAGE', '' );
+//define( 'GOOGLE_PLUS_PUBLISHER', '' );
 
 
 /**
