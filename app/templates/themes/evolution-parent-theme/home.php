@@ -12,9 +12,9 @@
       $blog_args = array(
         'paged' => $paged
       );
+      $query = new WP_Query( $blog_args );
 
-      query_posts( $blog_args );
-      if( have_posts() ) while ( have_posts() ) : the_post();
+      if( $query->have_posts() ) while ( $query->have_posts() ) : $query->the_post();
     ?>
 
       <?php include_once( PARENT_TMPL_DIR . '/modules/mod-post-preview.php' ); ?>
@@ -24,7 +24,7 @@
 
     <?php if ( function_exists( 'pagination' ) ) { pagination(); } ?>
 
-    <?php wp_reset_query(); ?>
+    <?php wp_reset_postdata(); ?>
 
     </section>
 

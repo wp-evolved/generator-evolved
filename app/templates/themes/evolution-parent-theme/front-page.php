@@ -7,15 +7,16 @@
     <h2>Latest posts</h2>
     <ul class="preview-list preview-list--home">
     <?php
-      query_posts( 'posts_per_page=10' );
-      if( have_posts() ) while ( have_posts() ) : the_post();
+      $query = new WP_Query( 'posts_per_page=10' );
+
+      if ( $query->have_posts() ) while ( $query->have_posts() ) : $query->the_post();
     ?>
 
       <?php include_once( PARENT_TMPL_DIR . '/modules/mod-post-preview.php' ); ?>
 
     <?php
       endwhile;
-      wp_reset_query();
+      wp_reset_postdata();
     ?>
     </ul>
 
