@@ -12,6 +12,16 @@ define( 'AUTHOR', SITE_NAME . ' - '. WWW_URL );
 
 
 /**
+ * Remove junk from <head>
+ * Source: http://digwp.com/2010/03/wordpress-functions-php-template-custom-functions
+ */
+remove_action( 'wp_head', 'rsd_link' ); // Display the link to the Really Simple Discovery service endpoint, EditURI link
+remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that is generated on the wp_head hook, WP version
+remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windows Live Writer manifest file.
+remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the extra feeds such as category feeds
+
+
+/**
  * Add category nicenames in body and post class
  */
 function category_id_class( $classes ) {
