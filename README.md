@@ -26,6 +26,8 @@ Install generator-genesis-evolution and Grunt CLI globally (you should already h
 $ npm install -g generator-genesis-evolution grunt-cli
 ```
 
+**Note - v0.2.0 or later of the generator requires Sass 3.3 or later. Run `npm install -g generator-genesis-evolution@~0.1.*` if you're not up to date with Sass**
+
 CD to your project and initiate the Gensis Evolution generator
 
 ```
@@ -60,6 +62,7 @@ bower install
 ```
 
 This will install our theme dependencies like js libraries, bourbon, and neat (these are declared in bower.json).
+
 
 ### Install Sass
 
