@@ -12,6 +12,10 @@ And constructed with these guidelines:
 
 For more information on semantic versioning, please visit http://semver.org/.
 
+## v0.2.1 - May 2, 2014
+
+Fixed a bug for missing vendor mixin
+
 ## v0.2.0 - May 1, 2014
 
 Updating for Sass v3.3, Bourbon v4.* and Neat v1.6.*.
