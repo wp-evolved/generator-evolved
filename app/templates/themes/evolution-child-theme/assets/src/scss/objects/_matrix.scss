@@ -35,7 +35,7 @@
     border-right-width: 1px;
     border-bottom-width: 1px;
     @if $global-border-box == false {
-      @include vendor(box-sizing, border-box);
+      @include box-sizing(border-box);
     }
   }
 }
