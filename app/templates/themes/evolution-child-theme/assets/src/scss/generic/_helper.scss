@@ -93,19 +93,14 @@
 
 /**
  * Hide content based on breakpoint
+ * Ex.
+ * .thing {
+ *   @include media($palm) {
+ *     @extend .hide;
+ *   }
+ * }
  */
 .hide {
   position: absolute;
   left: -9999px;
-}
-
-@each $state in palm, lap, portable, desk {
-
-  @include media-query(#{$state}) {
-
-    .hide--#{$state} {
-      position: absolute;
-      left: -9999px;
-    }
-  }
 }
