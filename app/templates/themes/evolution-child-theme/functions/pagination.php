@@ -21,7 +21,7 @@ function pagination( $pages = '', $range = 2 ) {
 
   global $paged;
 
-  if ( empty( $paged ) ) { $paged = 1 };
+  if ( empty( $paged ) ) { $paged = 1; }
 
   if ( $pages == '' ) {
     global $wp_query;
