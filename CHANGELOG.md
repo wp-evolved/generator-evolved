@@ -12,6 +12,10 @@ And constructed with these guidelines:
 
 For more information on semantic versioning, please visit http://semver.org/.
 
+## v0.2.3 - May 2, 2014
+
+Fixed improper semicolon use.
+
 ## v0.2.2 - May 2, 2014
 
 Fixed a bug for missing media-query mixin and added an example of how Bourbon's media mixin should be used instead.
