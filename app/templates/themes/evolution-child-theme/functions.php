@@ -137,7 +137,7 @@ add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
  * Include external function calls
  * Uncomment and edit these as you need them
  */
-require_once( CHILD_SS_DIR . '/functions/display-post-thumbnails.php' )
+require_once( CHILD_SS_DIR . '/functions/display-post-thumbnails.php' );
 require_once( CHILD_SS_DIR . '/functions/pagination.php' );
 
 //require_once( CHILD_SS_DIR . '/functions/cpt_example.php' );
