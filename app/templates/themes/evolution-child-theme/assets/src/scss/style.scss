@@ -6,17 +6,19 @@
 * version: 0.1.0
 */
 
-/**
- * Project Settings
- */
-@import "settings";
-
 
 /**
  * Bourbon
  */
 @import "../../../../../../../bower_components/bourbon/dist/bourbon";
 @import "../../../../../../../bower_components/neat/app/assets/stylesheets/neat";
+
+
+/**
+ * Project Settings
+ */
+@import "settings";
+
 
 /**
  * Project Generic
