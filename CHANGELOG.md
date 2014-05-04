@@ -12,6 +12,10 @@ And constructed with these guidelines:
 
 For more information on semantic versioning, please visit http://semver.org/.
 
+## v0.2.4 - May 4, 2014
+
+Fixed improper Sass import order. Project dependencies *must* come before any project files.
+
 ## v0.2.3 - May 2, 2014
 
 Fixed improper semicolon use.
