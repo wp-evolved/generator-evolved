@@ -54,6 +54,14 @@ if ( function_exists( 'register_sidebar' )  ) {
  */
 add_theme_support( 'menus' );
 
+/**
+ * This theme uses wp_nav_menu() in two locations
+ */
+  register_nav_menus( array(
+    'primary'   => __( 'Top primary menu', 'evolution-parent' ),
+    'footer' => __( 'Footer menu', 'evolution-parent' ),
+  ) );
+
 
 /** Add Parent Class to menu items
  * http://codex.wordpress.org/Function_Reference/wp_nav_menu#How_to_add_a_parent_class_for_menu_item

@@ -46,7 +46,7 @@
 
     <div class="site-logo"><?php echo SITE_NAME; ?></div>
     <nav role="navigation" class="nav main-nav">
-      <?php wp_nav_menu( array( 'menu' => 'Main-Nav','container' => false ) ); ?>
+      <?php wp_nav_menu( array( 'menu' => 'Main-Nav', 'theme_location' => 'footer', 'container' => false ) ); ?>
     </nav>
 
   </header>
