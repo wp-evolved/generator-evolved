@@ -161,3 +161,11 @@
     }
   }
 }
+
+
+/**
+ * Hide links (targeting screen readers, etc.)
+ */
+.skip-link {
+  @include hidden-text;
+}

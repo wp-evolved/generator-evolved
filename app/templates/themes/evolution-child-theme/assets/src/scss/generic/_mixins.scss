@@ -18,6 +18,16 @@
 
 
 /**
+ * Better Image Replacement
+ */
+@mixin hidden-text {
+  text-indent: 110%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+/**
  * Stylable Ordered Lists
  *
  * Prefixes each item w/ a counter based on all items in the parent
