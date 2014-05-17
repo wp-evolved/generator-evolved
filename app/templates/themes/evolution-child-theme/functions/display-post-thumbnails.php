@@ -45,7 +45,7 @@ function display_post_thumbnail_src( $id = 0, $size = 'thumbnail' ) {
 /**
  * Display the post thumbnail
 */
-function display_post_thumbnail( $id = 0, $size = 'thumbnail', $image_link = 'permalink' ) {
+function display_post_thumbnail( $id = 0, $size = 'thumbnail', $src = 'permalink' ) {
   $post     = get_post( $id );
   $post_id  = isset( $post->ID ) ? $post->ID : 0;
 
@@ -59,7 +59,7 @@ function display_post_thumbnail( $id = 0, $size = 'thumbnail', $image_link = 'pe
       $class    = '';
       $img_src  = $src[0];
 
-      if ( 'imagelink' == $image_link ) {
+      if ( 'imagelink' == $src ) {
         $link = $src[1];
       } else {
         $link = get_permalink( $post_id );
