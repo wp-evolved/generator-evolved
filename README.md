@@ -6,11 +6,11 @@ Genesis Skeleton - Evolution is a simple pair of parent and child themes for use
 
 ## Features
 
-* Yeoman generator makes installation (or updating) on an existing Genesis Skeleton project simple.
+* [Yeoman][2] generator makes installation (or updating) on an existing Genesis Skeleton project simple.
 * Parent theme creates a unified base for all Genesis Skeleton projects without making too many design decisions.
-* Child theme takes control of the project's specific design requirements utilizing Bourbon for Sass utilities and Neat for grid alignments.
-* Utilizes Bower for easy dependency management.
-* Utilizes Grunt for an integrated CLI workflow with Genesis Skeleton.
+* Child theme takes control of the project's specific design requirements utilizing [Bourbon][8] for Sass utilities, [Neat][9] for grid alignments and borrows from [Inuit CSS][10] for a solid base.
+* Utilizes [Bower][4] for easy dependency management.
+* Utilizes [Grunt][7] for an integrated CLI workflow with Genesis Skeleton.
 
 
 ## Installation
@@ -168,7 +168,7 @@ We use Bourbon/Neat for special functions, css3 mixins, and our grid. Bourbon ha
 
 #### Base, Generic and Objects
 
-Based on Inuit CSS, this is were the styling for our resets, base styles, abstractions and custom objects we take from project to project reside. Feel free to include whatever you do or don't need in the style.scss to keep your final size down.
+Based on Inuit CSS, this is where the styling for our resets, base styles, abstractions and custom objects we take from project to project reside. Feel free to include whatever you do or don't need in the style.scss to keep your final size down.
 
 #### Modules and Layout
 
@@ -198,3 +198,7 @@ This generator is currently considered unstable. Things will be moving while it 
 [4]: http://bower.io/
 [5]: https://help.github.com/articles/create-a-repo
 [6]: https://github.com/jimmynotjim/generator-genesis-evolution/blob/master/CHANGELOG.md
+[7]: http://gruntjs.com/
+[8]: http://bourbon.io/
+[9]: http://neat.bourbon.io/
+[10]: https://github.com/csswizardry/inuit.css/
