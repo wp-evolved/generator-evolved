@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main role="main" class="main-container">
+<main role="main" class="site-content">
 
   <section class="content">
 
