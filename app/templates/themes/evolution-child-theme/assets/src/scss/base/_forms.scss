@@ -15,9 +15,6 @@ fieldset {
  * Set submit buttons to look like buttons
  */
 input[type="submit"] {
-  -webkit-appearance: none;
-  border: none;
-
   @extend .btn;
 }
 
