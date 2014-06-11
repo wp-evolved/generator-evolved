@@ -36,7 +36,7 @@ $base-font-size:    17px!default;
 $base-line-height:  24px!default;
 $base-spacing-unit: 20px!default;
 $half-spacing-unit: $base-spacing-unit / 2!default;
-$line-height-ratio: $base-line-height / $base-font-size;
+$line-height-ratio: $base-line-height / $base-font-size!default;
 
 
 /**
@@ -53,20 +53,28 @@ $flexible-media:  true!default;
 
 
 /**
- * Responsive push and pull produce a LOT of code, only turn them on if you
- * definitely need them.
+ * Set the breakpoints (set these to where your content breaks, not to specific screen sizes)
  */
-$responsive-push: false!default;
-$responsive-pull: false!default;
+$lap-start:   520px!default;
+$desk-start:  940px!default;
+$wall-start:  1200px!default;
+$palm-end:    $lap-start - 1px!default;
+$lap-end:     $desk-start - 1px!default;
+$desk-end:    $wall-start - 1px!default;
 
 
 /**
- * Tell inuit.css when breakpoints start.
+ * Neat Grid Settings
  */
-$lap-start:   481px!default;
-$desk-start:  1024px!default;
-$palm-end:    $lap-start - 1px;
-$lap-end:     $desk-start - 1px;
+$border-box-sizing: true!default;
+$column: 70px!default;
+$grid-columns: 12!default;
+$gutter: 20px!default;
+$max-width: 1400px!default;
+$visual-grid: false!default;
+$visual-grid-color: yellow!default;
+$visual-grid-index: front!default;
+$visual-grid-opacity: 0.5!default;
 
 
 /**
@@ -91,6 +99,7 @@ $size-micro:    10px;
  * English quote marks?
  */
 $english-quotes:  true!default;
+
 
 /**
  * If you want English quotes then please do not edit these; they’re only here
@@ -122,7 +131,7 @@ $font-secondary:  'Wire One', 'Helvetica Neue', 'Open Sans', sans-serif;
 $color-primary:         #505050;
 $color-secondary:       #F89406;
 $color-tertiary:        #2BADAD;
-$color-tertiary-shaded:	#228a8a;
+$color-tertiary-shaded: #228a8a;
 $color-background:      #f3f3f3;
 $color-bg-tinted:       #efeee7;
 $color-text:            $color-primary;
