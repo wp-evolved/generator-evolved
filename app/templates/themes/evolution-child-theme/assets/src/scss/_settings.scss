@@ -3,8 +3,7 @@
 \*------------------------------------*/
 /**
  * Set up project-specific variables here which are then used throughout your
- * build. These variables are automatically picked up by inuit.css so you should
- * never need to modify any framework code.
+ * build. Many options are based on Inuit.css
  */
 
 
@@ -16,14 +15,7 @@ $debug-mode:  false!default;
 
 
 /**
- * Would you like to use Adam Whitcroft’s Batch icon font, as per:
- * adamwhitcroft.com/batch ?
- */
-$batch: false!default;
-
-
-/**
- * Base stuff
+ * Base Sizes
  */
 $base-font-size:    17px!default;
 $base-line-height:  24px!default;
@@ -33,15 +25,14 @@ $line-height-ratio: $base-line-height / $base-font-size!default;
 
 
 /**
- * How big would you like round corners to be by default?
+ * Set the border radius
  */
 $global-round: 4px!default;
 
 
 /**
- * Responsiveness?
+ * Flexible Media (Important for responsive sites)
  */
-$responsive:      false!default;
 $flexible-media:  true!default;
 
 
@@ -60,13 +51,13 @@ $desk-end:    $wall-start - 1px!default;
  * Neat Grid Settings
  */
 $border-box-sizing: true!default;
-$column: 70px!default;
-$grid-columns: 12!default;
-$gutter: 20px!default;
-$max-width: 1400px!default;
-$visual-grid: false!default;
-$visual-grid-color: yellow!default;
-$visual-grid-index: front!default;
+$column:              70px!default;
+$grid-columns:        12!default;
+$gutter:              20px!default;
+$max-width:           1400px!default;
+$visual-grid:         false!default;
+$visual-grid-color:   yellow!default;
+$visual-grid-index:   front!default;
 $visual-grid-opacity: 0.5!default;
 
 
@@ -115,7 +106,7 @@ $close-quote: null;
  * Typography
  */
 $font-primary:    'Helvetica Neue', 'Open Sans', sans-serif;
-$font-secondary:  'Wire One', 'Helvetica Neue', 'Open Sans', sans-serif;
+$font-secondary:  'Helvetica Neue', 'Open Sans', sans-serif;
 
 
 /**
