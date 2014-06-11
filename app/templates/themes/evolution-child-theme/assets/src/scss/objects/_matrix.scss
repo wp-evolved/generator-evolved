@@ -19,7 +19,7 @@
  */
 .matrix {
   @extend %cf;
-  @extend .unstyled-list;
+  @extend %unstyled-list;
 
   border-top-width: 1px;
   border-left-width: 1px;
@@ -63,7 +63,7 @@
  */
 .multi-list {
     @extend %cf;
-    @extend .unstyled-list;
+    @extend %unstyled-list;
 
   > li {
     float: left;

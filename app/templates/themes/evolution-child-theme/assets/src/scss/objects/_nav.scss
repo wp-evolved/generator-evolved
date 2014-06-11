@@ -19,10 +19,7 @@
 .nav,
 .menu {
   @extend %cf;
-  @extend .unstyled-list;
-
-  list-style-type: none;
-  margin-left: 0;
+  @extend %unstyled-list;
 
   > li {
     float: left;
@@ -58,7 +55,7 @@
 .sub-nav,
 .sub-menu {
   @extend %cf;
-  @extend .unstyled-list;
+  @extend %unstyled-list;
 
   height: 0px;
   overflow: hidden;

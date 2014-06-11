@@ -28,13 +28,13 @@
   font-size: $size-milli;
 
   li {
-    margin: $base-spacing-unit / 2;
+    margin: $half-spacing-unit;
   }
 
   a,
   span {
     display: block;
-    padding: em( ($base-spacing-unit / 2), $size-milli);
+    padding: em($half-spacing-unit, $size-milli);
   }
 }
 

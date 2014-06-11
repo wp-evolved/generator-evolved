@@ -24,7 +24,7 @@
  *
  */
 .split {
-  @extend .unstyled-list;
+  @extend %unstyled-list;
 
   text-align: right;
 }
