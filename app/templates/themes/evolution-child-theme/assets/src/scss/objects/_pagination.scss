@@ -34,14 +34,14 @@
   a,
   span {
     display: block;
-    padding: pxtoem( ($base-spacing-unit / 2), $size-milli);
+    padding: em( ($base-spacing-unit / 2), $size-milli);
   }
 }
 
 .pagination__prev a,
 .pagination__next a {
-  padding-left: pxtoem($base-spacing-unit, $size-milli);
-  padding-right: pxtoem($base-spacing-unit, $size-milli);
+  padding-left: em($base-spacing-unit, $size-milli);
+  padding-right: em($base-spacing-unit, $size-milli);
 }
 
 .pagination__curr span,

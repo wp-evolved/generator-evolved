@@ -1,16 +1,6 @@
 /*------------------------------------*\
     $FUNCTIONS
 \*------------------------------------*/
-/**
- * Convert px values to em values
- */
-@function pxtoem($target, $context) {
-  @if $context == ''{
-    $context: $base-font-size;
-  }
-
-  @return ($target / $context) + 0em;
-}
 
 
 /**

@@ -8,7 +8,7 @@
 
 .site-logo {
   color: #fff;
-  font-size: pxtoem($size-giga, $base-font-size);
+  font-size: em($size-giga, $base-font-size);
   font-weight: 200;
   line-height: 1em;
   padding-bottom: 30px;
@@ -18,8 +18,8 @@
 
 .main-nav {
   background-color: $color-bg-nav;
-  font-size: pxtoem($size-milli, $base-font-size);
-  line-height: pxtoem(20px, $base-font-size);
+  font-size: em($size-milli, $base-font-size);
+  line-height: em(20px, $base-font-size);
   padding: 15px 30px;
 
   li {
@@ -27,7 +27,7 @@
 
     &:first-child {
       border: none;
-      font-size: pxtoem($size-zeta, $size-milli);
+      font-size: em($size-zeta, $size-milli);
       font-weight: 500;
     }
   }

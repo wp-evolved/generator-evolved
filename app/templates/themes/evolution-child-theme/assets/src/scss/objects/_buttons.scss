@@ -24,7 +24,7 @@
    * Set padding in ems so we can change the size of a button by merely
    * altering its `font-size`.
    */
-  padding: pxtoem(22px, $base-font-size) pxtoem(8px, $base-font-size) pxtoem(25px, $base-font-size);
+  padding: em(22px, $base-font-size) em(8px, $base-font-size) em(25px, $base-font-size);
 
   &:hover {
     background-color: $color-button-active;

@@ -15,31 +15,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: pxtoem($size-alpha, $base-font-size);
-  margin-bottom: pxtoem($base-spacing-unit, $size-alpha);
+  font-size: em($size-alpha, $base-font-size);
+  margin-bottom: em($base-spacing-unit, $size-alpha);
 }
 
 h2 {
-  font-size: pxtoem($size-beta, $base-font-size);
-  margin-bottom: pxtoem($base-spacing-unit, $size-beta);
+  font-size: em($size-beta, $base-font-size);
+  margin-bottom: em($base-spacing-unit, $size-beta);
 }
 
 h3 {
-  font-size: pxtoem($size-gamma, base-font-size);
-  margin-bottom: pxtoem($base-spacing-unit, $size-gamma);
+  font-size: em($size-gamma, base-font-size);
+  margin-bottom: em($base-spacing-unit, $size-gamma);
 }
 
 h4 {
-  font-size: pxtoem($size-delta, base-font-size);
-  margin-bottom: pxtoem($base-spacing-unit, $size-delta);
+  font-size: em($size-delta, base-font-size);
+  margin-bottom: em($base-spacing-unit, $size-delta);
 }
 
 h5 {
-  font-size: pxtoem($size-epsilon, base-font-size);
-  margin-bottom: pxtoem($base-spacing-unit, $size-epsilon);
+  font-size: em($size-epsilon, base-font-size);
+  margin-bottom: em($base-spacing-unit, $size-epsilon);
 }
 
 h6 {
-  font-size: pxtoem($size-zeta, base-font-size);
-  margin-bottom: pxtoem($base-spacing-unit, $size-zeta);
+  font-size: em($size-zeta, base-font-size);
+  margin-bottom: em($base-spacing-unit, $size-zeta);
 }

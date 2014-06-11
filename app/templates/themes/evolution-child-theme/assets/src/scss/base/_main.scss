@@ -12,5 +12,5 @@ html {
 }
 
 body {
-  font-size: pxtoem($base-font-size, 16px);
+  font-size: em($base-font-size, 16px);
 }

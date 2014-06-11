@@ -132,7 +132,7 @@ td {
  * Data table
  */
 .table--data {
-  font-size: pxtoem(12px, $base-font-size);
+  font-size: em(12px, $base-font-size);
   line-height: 1.5;
   font-family: $font-primary;
 }

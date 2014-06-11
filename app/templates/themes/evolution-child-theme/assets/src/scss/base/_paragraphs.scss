@@ -7,10 +7,10 @@
  */
 .lede,
 .lead {
-  font-size: pxtoem( ($base-font-size * 1.125), $base-font-size);
-  margin-bottom: pxtoem( $base-spacing-unit, ($base-font-size * 1.125) );
+  font-size: em( ($base-font-size * 1.125), $base-font-size);
+  margin-bottom: em( $base-spacing-unit, ($base-font-size * 1.125) );
 }
 
 p {
-  margin-bottom: pxtoem($base-spacing-unit, $base-font-size);
+  margin-bottom: em($base-spacing-unit, $base-font-size);
 }
