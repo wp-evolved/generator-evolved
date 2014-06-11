@@ -14,7 +14,7 @@
  */
 .island,
 .islet {
-  @extend .cf;
+  @extend %cf;
 }
 
 .island {

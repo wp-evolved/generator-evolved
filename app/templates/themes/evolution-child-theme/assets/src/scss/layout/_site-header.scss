@@ -2,7 +2,7 @@
     $SITE HEADER
 \*------------------------------------*/
 .site-header {
-  @extend .cf;
+  @extend %cf;
 
   margin-bottom: 50px;
 }

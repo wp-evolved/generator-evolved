@@ -18,7 +18,7 @@
  */
 .nav,
 .menu {
-  @extend .cf;
+  @extend %cf;
   @extend .unstyled-list;
 
   list-style-type: none;
@@ -57,7 +57,7 @@
  */
 .sub-nav,
 .sub-menu {
-  @extend .cf;
+  @extend %cf;
   @extend .unstyled-list;
 
   height: 0px;

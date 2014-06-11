@@ -18,7 +18,7 @@
  *
  */
 .matrix {
-  @extend .cf;
+  @extend %cf;
   @extend .unstyled-list;
 
   border-top-width: 1px;
@@ -62,7 +62,7 @@
  *
  */
 .multi-list {
-    @extend .cf;
+    @extend %cf;
     @extend .unstyled-list;
 
   > li {

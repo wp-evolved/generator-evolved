@@ -16,7 +16,7 @@
  *
  */
 .media {
-  @extend .cf;
+  @extend %cf;
 }
 
 .media__img,

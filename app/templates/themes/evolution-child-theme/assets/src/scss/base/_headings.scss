@@ -25,21 +25,21 @@ h2 {
 }
 
 h3 {
-  font-size: em($size-gamma, base-font-size);
+  font-size: em($size-gamma, $base-font-size);
   margin-bottom: em($base-spacing-unit, $size-gamma);
 }
 
 h4 {
-  font-size: em($size-delta, base-font-size);
+  font-size: em($size-delta, $base-font-size);
   margin-bottom: em($base-spacing-unit, $size-delta);
 }
 
 h5 {
-  font-size: em($size-epsilon, base-font-size);
+  font-size: em($size-epsilon, $base-font-size);
   margin-bottom: em($base-spacing-unit, $size-epsilon);
 }
 
 h6 {
-  font-size: em($size-zeta, base-font-size);
+  font-size: em($size-zeta, $base-font-size);
   margin-bottom: em($base-spacing-unit, $size-zeta);
 }
