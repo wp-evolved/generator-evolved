@@ -34,7 +34,7 @@
     float: left;
     border-right-width: 1px;
     border-bottom-width: 1px;
-    @if $global-border-box == false {
+    @if $border-box-sizing == false {
       @include box-sizing(border-box);
     }
   }
