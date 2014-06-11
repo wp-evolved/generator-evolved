@@ -2,20 +2,8 @@
     $CLEARFIX
 \*------------------------------------*/
 /**
- * Micro clearfix, as per: nicolasgallagher.com/micro-clearfix-hack
- * Extend the clearfix class with Sass to avoid the `.cf` class appearing over
- * and over in your markup.
+ * Silent clearfix placeholder to avoid duplication thorughout our project
  */
-.cf {
-  zoom:1;
-
-  &:before,
-  &:after {
-    content: " ";
-    display: table;
-  }
-
-  &:after {
-    clear: both;
-  }
+%cf {
+  @include clearfix;
 }
