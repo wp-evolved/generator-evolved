@@ -9,6 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1.0">
   <title><?php wp_title( '' ); ?></title>
 
   <?php if ( defined( 'TYPEKIT' ) ) : // Typkit Code ?>
