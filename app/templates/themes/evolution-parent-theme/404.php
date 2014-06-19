@@ -11,7 +11,7 @@
     <?php include_once( PARENT_TMPL_DIR . '/modules/mod-search-form.php' ); ?>
 
     <h2>Latest posts</h2>
-    <ul class="preview-list preview-list--error">
+    <ul class="hfeed preview-list preview-list--error">
     <?php
       $query = new WP_Query( 'posts_per_page=5' );
 

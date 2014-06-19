@@ -5,7 +5,7 @@
   <section class="content">
 
     <h2>Latest posts</h2>
-    <ul class="preview-list preview-list--home">
+    <ul class="hfeed preview-list preview-list--home">
     <?php
       $query = new WP_Query( 'posts_per_page=10' );
 

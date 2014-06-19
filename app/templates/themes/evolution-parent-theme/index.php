@@ -8,9 +8,15 @@
 
     <?php edit_post_link('Edit', '', '' ); ?>
 
-    <article class="page-article">
-      <h1 class="page-title"><?php the_title(); ?></h1>
-      <?php the_content(); ?>
+    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <h1 class="entry-title"><?php the_title(); ?></h1>
+      <div class="post-meta">
+        <time class="updated published" datetime="<?php the_date( 'c' ); ?>"><?php the_time('F j, Y'); ?></time>
+        <span class="author vcard"><span class="fn"><?php the_author(); ?></span></span>
+      </div>
+      <div class="entry-content">
+        <?php the_content(); ?>
+      </div>
     </article>
 
     <?php endwhile; ?>

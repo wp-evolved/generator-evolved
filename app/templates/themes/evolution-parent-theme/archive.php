@@ -28,7 +28,7 @@
       }
     ?>
 
-    <ul class="preview-list preview-list--archive">
+    <ul class="hfeed preview-list preview-list--archive">
     <?php if( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
       <?php include_once( PARENT_TMPL_DIR . '/modules/mod-post-preview.php' ); ?>
