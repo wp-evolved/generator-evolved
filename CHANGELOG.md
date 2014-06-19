@@ -12,6 +12,18 @@ And constructed with these guidelines:
 
 For more information on semantic versioning, please visit http://semver.org/.
 
+## v0.2.5 - June 11, 2014
+
+* Added wp_nav_menu theme locations
+* Added accessible skip to content link
+* Added edit link for users
+* Fixed a bug in the `category_id_class` function
+* Fixed a bug in the `display_post_thumbnail` function
+* Fixed a bug in the `grunt watch` task
+* Fixed duplicate padding on lists
+* Updated required versions of devDependencies
+* Updated to use new `main` element
+
 ## v0.2.4 - May 4, 2014
 
 Fixed improper Sass import order. Project dependencies *must* come before any project files.

@@ -18,7 +18,9 @@ module.exports = function(grunt) {
     NAME:       '<%= pkg.name %>',
     SHORT_NAME: '<%= pkg.shortName.toLowerCase() %>',
     BOWER_DIR:  'bower_components',
-    ASSETS_DIR: 'web/wp-content/themes/<%= SHORT_NAME %>-theme/assets',
+    PARENT_DIR: 'web/wp-content/themes/evolution-parent-theme',
+    CHILD_DIR:  'web/wp-content/themes/<%= SHORT_NAME %>-theme',
+    ASSETS_DIR: '<%= CHILD_DIR %>/assets',
     DIST_DIR:   '<%= ASSETS_DIR %>/dist',
     DEV_DIR:    '<%= ASSETS_DIR %>/dev',
     SRC_DIR:    '<%= ASSETS_DIR %>/src',
@@ -160,9 +162,7 @@ module.exports = function(grunt) {
           livereload: true
         },
         files: [
-          '<%= DEV_DIR %>/**',
-          '*.php',
-          '**/*.php'
+          '<%= CHILD_DIR %>/**'
         ]
       }
     }

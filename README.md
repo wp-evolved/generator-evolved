@@ -158,7 +158,7 @@ This is where we set up project specific functions and global variables; enqueue
 
 ### Templates & Modules
 
-Same as the templates and modules in the parent theme, this is where you want to add any new templates or modules you need for your project.
+Same as the templates and modules in the parent theme, this is where you want to add any new templates or modules you need for your project. For example, if you want to customize single posts, create a `single.php` file in the child theme and it will override the parent.
 
 ### Styling
 
@@ -168,7 +168,7 @@ We use Bourbon/Neat for special functions, css3 mixins, and our grid. Bourbon ha
 
 #### Base, Generic and Objects
 
-Based on InuitCSS, this is where the styling for our resets, base styles, abstractions and custom objects we take from project to project reside. Feel free to include whatever you do or don't need in the style.scss to keep your final size down.
+Based on Inuit CSS, this is where the styling for our resets, base styles, abstractions and custom objects we take from project to project reside. Feel free to include whatever you do or don't need in the style.scss to keep your final size down.
 
 #### Modules and Layout
 

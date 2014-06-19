@@ -12,6 +12,8 @@ in their own file.
 
 Developed by: Eddie Machado
 URL: http://themble.com/bones/
+
+For a more in depth example see http://justintadlock.com/archives/2013/09/13/register-post-type-cheat-sheet
 */
 
 
