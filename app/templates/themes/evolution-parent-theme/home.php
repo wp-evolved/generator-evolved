@@ -6,7 +6,7 @@
 
     <h1 class="page-title"><?php the_title(); ?></h1>
 
-    <ul class="preview-list preview-list--blog">
+    <ul class="hfeed preview-list preview-list--blog">
     <?php
       $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
       $blog_args = array(
