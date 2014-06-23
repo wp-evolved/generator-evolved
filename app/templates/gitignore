@@ -35,6 +35,7 @@ nbproject
 .vagrant
 _notes
 bower_components
+backups
 node_modules
 **/assets/dev
 

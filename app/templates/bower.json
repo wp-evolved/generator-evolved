@@ -8,7 +8,7 @@
   "description": "<%= props.projDescription %>",
   "version": "<%= props.projVersion %>",
   "dependencies": {
-    "genesis-wordpress": "~0.2.44",
+    "genesis-wordpress": "~0.2.54",
     "bourbon": "~4.0.1",
     "neat": "~1.6.0"
   }
