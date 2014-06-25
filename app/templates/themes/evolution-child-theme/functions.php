@@ -6,7 +6,7 @@
  */
 define( 'CHILD_SS_URI', get_stylesheet_directory_uri() );
 define( 'CHILD_SS_DIR', get_stylesheet_directory() );
-define( 'DEFAULT_PHOTO', CHILD_SS_URI .'/assets/img/min/default-photo.gif' );
+define( 'DEFAULT_PHOTO', CHILD_SS_URI .'/assets/img/default-photo.gif' );
 
 //define( 'TYPEKIT', '123456' );
 //define( 'HFJ_ACCOUNT', '123456' );
