@@ -45,7 +45,7 @@
 
   <header role="banner" class="site-header">
 
-    <div class="site-logo"><?php echo SITE_NAME; ?></div>
+    <a href="<?php echo WWW_URL; ?>" class="site-logo"><?php echo SITE_NAME; ?></a>
     <nav role="navigation" class="nav main-nav">
       <a class="screen-reader-text skip-link" href="#content">Skip to content</a>
       <?php wp_nav_menu( array( 'menu' => 'Main-Nav', 'theme_location' => 'primary', 'container' => false ) ); ?>
