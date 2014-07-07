@@ -39,7 +39,7 @@ describe('theme generator', function () {
             'projShortName': 'ts',
             'authorName': 'Test Author',
             'authorURI': 'test-author.com',
-            'web': 'web',
+            'themeDir': 'web/wp-content/themes',
             'projDescription': 'test site just for testing',
             'projVersion': '0.1.1'
         });
