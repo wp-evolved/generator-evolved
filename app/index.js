@@ -4,8 +4,7 @@ var path    = require('path');
 var yeoman  = require('yeoman-generator');
 var fs      = require('fs-extra');
 var chalk   = require('chalk');
-var Glob    = require('glob').Glob;
-
+var glob    = require('glob');
 
 var EvolutionGenerator = yeoman.generators.Base.extend({
   init: function () {
@@ -142,29 +141,36 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
       }.bind(this)
     });
   },
-  promptForThemeDir: function() {
-    var match = false;
+  searchForThemesDir: function() {
+    var props = this.props = [];
 
-    var mg    = new Glob('**/wp-content/themes', [{'sync':true}], function(err, matches) {
+    glob.sync('**/wp-content/themes', function(err, matches) {
       if (err) throw err;
 
       if (matches.length) {
-        match = matches[0];
+        props.themesDir = matches[0];
       }
     });
+  },
+  promptForThemesDir: function() {
+    var existing = function() {
+      try {
+        return this.props.themesDir;
+      } catch(e) {};
+    }.bind(this);
 
     this.prompts.push({
       type:     'text',
-      name:     'themeDir',
+      name:     'themesDir',
       message:  'Themes directory',
       default:  function() {
-        return match || 'web/wp-content/themes';
+        return existing() || 'web/wp-content/themes';
       }
     });
   },
   promptForChild: function() {
     var existing = function(response) {
-      var childLoc = path.join(response.themeDir, response.projShortName + '-theme');
+      var childLoc = path.join(response.themesDir, response.projShortName + '-theme');
 
       try {
         var style = this.readFileAsString(path.join(childLoc, 'style.css'));
@@ -226,8 +232,8 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
       } catch(e) {}
     }.bind(this);
 
-    var parLoc      = path.join(this.props.themeDir, 'evolution-parent-theme');
-    var childLoc    = path.join(this.props.themeDir, this.props.projShortName + '-theme');
+    var parLoc      = path.join(this.props.themesDir, 'evolution-parent-theme');
+    var childLoc    = path.join(this.props.themesDir, this.props.projShortName + '-theme');
     var writeChild  = !existing(childLoc) || this.props.writeChild;
 
     this.directory('themes/evolution-parent-theme', parLoc);
@@ -239,7 +245,7 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   cleanUp: function() {
     this.log.info('Cleaning up...');
 
-    var root  = path.join(this.props.themeDir, this.props.projShortName + '-theme');
+    var root  = path.join(this.props.themesDir, this.props.projShortName + '-theme');
     var files = this.expandFiles('**/.gitkeep', {dot: true, cwd: root});
 
     for (var i = 0; i < files.length; i++) {
