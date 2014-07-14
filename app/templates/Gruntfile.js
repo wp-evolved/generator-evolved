@@ -136,6 +136,14 @@ module.exports = function(grunt) {
       }
     },
 
+    // Scan CSS colors with Colorguard
+    colorguard: {
+      options: {},
+      files: {
+        src: ['<%= DEV_DIR %>/style.css']
+      }
+    },
+
     // Sets up grunt to watch for file changes and fire the appropriate task
     watch: {
       sass: {
@@ -199,6 +207,7 @@ module.exports = function(grunt) {
     'concat:footer',
     'concat:single',
     'sass:dev',
-    'imagemin:all'
+    'imagemin:all',
+    'colorguard'
   ]);
 };
