@@ -26,7 +26,7 @@ function display_post_thumbnail_src( $id = 0, $size = 'thumbnail' ) {
     $featured_url = wp_get_attachment_url( get_post_thumbnail_id( $post_id ), $size );
 
     if ( isset( $featured_src ) ) {
-      return array( $featured_src[0], $featured_url );
+      return $featured_src[0];
     }
   } elseif ( $images ) { // author has uploaded various image attachments, and may or may not have put them in the content
     foreach( $images as $image ) {
@@ -34,7 +34,7 @@ function display_post_thumbnail_src( $id = 0, $size = 'thumbnail' ) {
       $atturl = wp_get_attachment_url( $image->ID );
 
       if ( isset( $attsrc ) ) {
-        return array( $attsrc[0], $atturl );
+        return $attsrc[0];
       }
     }
   } else { // no images uploaded to this post, so a default image is what we need
@@ -45,25 +45,19 @@ function display_post_thumbnail_src( $id = 0, $size = 'thumbnail' ) {
 /**
  * Display the post thumbnail
 */
-function display_post_thumbnail( $id = 0, $size = 'thumbnail', $src = 'permalink' ) {
+function display_post_thumbnail( $id = 0, $size = 'thumbnail' ) {
   $post     = get_post( $id );
   $post_id  = isset( $post->ID ) ? $post->ID : 0;
 
-  if ( $src == display_post_thumbnail_src( $post_id, $size ) ) {
+  if ( display_post_thumbnail_src( $post_id, $size ) ) {
 
     if ( $src == DEFAULT_PHOTO ) {
       $class    = ' default-photo';
       $link     = get_permalink( $post_id );
-      $img_src  = $src;
+      $img_src  = DEFAULT_PHOTO;
     } else {
       $class    = '';
-      $img_src  = $src[0];
-
-      if ( 'imagelink' == $src ) {
-        $link = $src[1];
-      } else {
-        $link = get_permalink( $post_id );
-      }
+      $img_src  = display_post_thumbnail_src();
     }
 
     echo '<a href="' . $link . '" title="Permanent Link to ' . esc_attr( get_the_title( $post_id ) ) . '" class="post-thumb' . $class . '" itemprop="image"><img src="' . $img_src . '" alt="' . esc_attr( get_the_title( $post_id ) ) . '" class="attachment-post-thumbnail wp-post-image"></a>';
