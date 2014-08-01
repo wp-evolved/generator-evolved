@@ -197,7 +197,8 @@ module.exports = function(grunt) {
     'concat:single',
     'uglify:all',
     'sass:dist',
-    'imagemin:all'
+    'imagemin:all',
+    'colorguard'
   ]);
 
   // Build for local dev
