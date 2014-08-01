@@ -117,6 +117,7 @@ grunt uglify		# Minifies the concatonated scripts in the assets/dist dir
 grunt sass:dist		# Compiles sass files (in expanded mode) to the assets/dev dir
 grunt sass:dev		# Compiles sass files (in compressed mode) to the assets/dist dir
 grunt imagemin		# Compresses images from /img/src directory to the /img/min directory
+grunt colorguard    # Compares your css files for colors that are too-similar and conflict with each other
 ```
 
 #### Further info
