@@ -9,15 +9,32 @@ And constructed with these guidelines:
 * Breaking backwards compatibility bumps the major
 * New additions without breaking backwards compatibility bumps the minor
 * Bug fixes and misc changes bump the patch
-* Fixed scss file import order (for good this time) 
 
 For more information on semantic versioning, please visit http://semver.org/.
+
+## v0.3.0 - August 1, 2014
+
+* Made the project agnostic to Genesis (checks for an existing themes dir or prompts the user to enter one)
+* Added default Neat settings to the _settings.scss file
+* Added viewport meta info
+* Removed pxtoem() function in favor of Bourbon em() function
+* Removed pxtoper() function in favor of Sass percentage() function
+* Removed inuit arrows in favor of Bourbon triangles
+* Removed inuit truncate() mixin in favor of Bourbon's ellipsis() mixin
+* Removed inuit box-sizing in favor of Neat's box-sizing
+* Removed batch icon styles
+* Removed default theme files (from /modules and /layout)
+* Changed clearfix class to a silent placeholder
+* Changed unstyled-list class to a silent placeholder
+* Updated imagemin task to overwrite images rather than duplicate them
+* Updated site-logo to link to home page
 
 ## v0.2.6 - July 31, 2014
 
 * Fixed pagination markup output
 * Fixed includes for post previews
 * Added grunt colorguard task to build tasks
+* Fixed scss file import order (for good this time) 
 
 ## v0.2.5 - June 11, 2014
 
