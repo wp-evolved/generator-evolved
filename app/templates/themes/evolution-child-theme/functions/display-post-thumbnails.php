@@ -51,9 +51,10 @@ function display_post_thumbnail( $id = 0, $size = 'thumbnail' ) {
 
   if ( display_post_thumbnail_src( $post_id, $size ) ) {
 
+    $link       = get_permalink( $post_id );
+
     if ( $src == DEFAULT_PHOTO ) {
       $class    = ' default-photo';
-      $link     = get_permalink( $post_id );
       $img_src  = DEFAULT_PHOTO;
     } else {
       $class    = '';
