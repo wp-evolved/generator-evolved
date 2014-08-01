@@ -18,7 +18,7 @@
       if ( $query->have_posts() ) while ( $query->have_posts() ) : $query->the_post();
     ?>
 
-      <?php include_once( PARENT_TMPL_DIR . '/modules/mod-post-preview.php' ); ?>
+      <?php include( PARENT_TMPL_DIR . '/modules/mod-post-preview.php' ); ?>
 
     <?php
       endwhile;

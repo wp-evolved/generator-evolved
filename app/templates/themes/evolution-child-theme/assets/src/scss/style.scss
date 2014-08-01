@@ -8,15 +8,20 @@
 
 
 /**
+ * Bourbon
+ */
+@import "../../../../../../../bower_components/bourbon/dist/bourbon";
+
+
+/**
  * Project Settings
  */
 @import "settings";
 
 
 /**
- * Bourbon
+ * Neat
  */
-@import "../../../../../../../bower_components/bourbon/dist/bourbon";
 @import "../../../../../../../bower_components/neat/app/assets/stylesheets/neat";
 
 

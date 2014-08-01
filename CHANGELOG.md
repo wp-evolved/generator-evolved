@@ -9,8 +9,15 @@ And constructed with these guidelines:
 * Breaking backwards compatibility bumps the major
 * New additions without breaking backwards compatibility bumps the minor
 * Bug fixes and misc changes bump the patch
+* Fixed scss file import order (for good this time) 
 
 For more information on semantic versioning, please visit http://semver.org/.
+
+## v0.2.6 - July 31, 2014
+
+* Fixed pagination markup output
+* Fixed includes for post previews
+* Added grunt colorguard task to build tasks
 
 ## v0.2.5 - June 11, 2014
 

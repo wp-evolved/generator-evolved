@@ -12,7 +12,7 @@
     <ul class="hfeed preview-list preview-list--results">
     <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-      <?php include_once( PARENT_TMPL_DIR . '/modules/mod-post-preview.php' ); ?>
+      <?php include( PARENT_TMPL_DIR . '/modules/mod-post-preview.php' ); ?>
 
     <?php endwhile; ?>
     </ul>
