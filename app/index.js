@@ -153,19 +153,13 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
     });
   },
   promptForThemesDir: function() {
-    var existing = function() {
-      try {
-        return this.props.themesDir;
-      } catch(e) {};
-    }.bind(this);
-
     this.prompts.push({
       type:     'text',
       name:     'themesDir',
       message:  'Themes directory',
       default:  function() {
-        return existing() || 'web/wp-content/themes';
-      }
+        return this.props.themesDir || 'web/wp-content/themes';
+      }.bind(this)
     });
   },
   promptForChild: function() {
