@@ -3,6 +3,10 @@
 /**
  * Define Global Site Variables
  */
+if ( !defined( 'WP_ENV' ) ) {
+  // Set environment to the last sub-domain (e.g. foo.staging.site.com => 'staging')
+  define( 'WP_ENV', array_pop( array_splice( explode( '.', $_SERVER['HTTP_HOST'] ), 0, -2 ) ) );
+}
 define( 'WWW_URL', site_url() );
 define( 'PARENT_TMPL_URI', get_template_directory_uri() );
 define( 'PARENT_TMPL_DIR', get_template_directory() );

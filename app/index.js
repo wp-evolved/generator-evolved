@@ -4,7 +4,7 @@ var path    = require('path');
 var yeoman  = require('yeoman-generator');
 var fs      = require('fs-extra');
 var chalk   = require('chalk');
-
+var glob    = require('glob');
 
 var EvolutionGenerator = yeoman.generators.Base.extend({
   init: function () {
@@ -29,7 +29,7 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   promptForName: function() {
     var existing = function() {
       try {
-        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+        var bower = require(path.join(this.env.cwd, 'bower.json'));
 
         return bower.name;
       } catch(e) {};
@@ -48,7 +48,7 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   promptForShortName: function() {
     var existing = function() {
       try {
-        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+        var bower = require(path.join(this.env.cwd, 'bower.json'));
 
         return bower.shortName;
       } catch(e) {};
@@ -60,10 +60,10 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
       name:     'projShortName',
       message:  'Project short name (e.g. mscom)',
       default:  function() {
-        var ext = path.extname(this.env.cwd);
-        var extname = ext.replace('.','');
-        var base = path.basename(this.env.cwd).replace(ext, '');
-        var basename = ( /[A-Z]/.test(base) ) ? base.replace(/[^A-Z]/g, '') : base.charAt(0);
+        var ext       = path.extname(this.env.cwd);
+        var extname   = ext.replace('.','');
+        var base      = path.basename(this.env.cwd).replace(ext, '');
+        var basename  = ( /[A-Z]/.test(base) ) ? base.replace(/[^A-Z]/g, '') : base.charAt(0);
 
         return existing() || ( basename + extname ).toLowerCase();
       }.bind(this)
@@ -72,7 +72,7 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   promptForAuthorName: function() {
     var existing = function() {
       try {
-        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+        var bower = require(path.join(this.env.cwd, 'bower.json'));
 
         return bower.author.name;
       } catch(e) {};
@@ -90,7 +90,7 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   promptForAuthorURI: function() {
     var existing = function() {
       try {
-        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+        var bower = require(path.join(this.env.cwd, 'bower.json'));
 
         return bower.author.url
       } catch(e) {};
@@ -108,7 +108,7 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   promptForDescription: function() {
     var existing = function() {
       try {
-        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+        var bower = require(path.join(this.env.cwd, 'bower.json'));
 
         return bower.description;
       } catch(e) {};
@@ -126,7 +126,7 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   promptForVersion: function() {
     var existing = function() {
       try {
-        var bower    = require(path.join(this.env.cwd, 'bower.json'));
+        var bower = require(path.join(this.env.cwd, 'bower.json'));
 
         return bower.version;
       } catch(e) {};
@@ -141,18 +141,30 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
       }.bind(this)
     });
   },
-  promptForWeb: function() {
+  searchForThemesDir: function() {
+    var props = this.props = [];
+
+    glob.sync('**/wp-content/themes', function(err, matches) {
+      if (err) throw err;
+
+      if (matches.length) {
+        props.themesDir = matches[0];
+      }
+    });
+  },
+  promptForThemesDir: function() {
     this.prompts.push({
       type:     'text',
-      name:     'web',
-      message:  'WordPress directory',
-      default:  'web'
+      name:     'themesDir',
+      message:  'Themes directory',
+      default:  function() {
+        return this.props.themesDir || 'web/wp-content/themes';
+      }.bind(this)
     });
   },
   promptForChild: function() {
-
     var existing = function(response) {
-      var childLoc = path.join(response.web, 'wp-content/themes/', response.projShortName + '-theme');
+      var childLoc = path.join(response.themesDir, response.projShortName + '-theme');
 
       try {
         var style = this.readFileAsString(path.join(childLoc, 'style.css'));
@@ -192,8 +204,7 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   writeProjectFiles: function() {
     this.log.info('Writing project files...');
 
-    this.copy('Gruntfile.js', 'Gruntfile.js');
-
+    this.template('Gruntfile.js', 'Gruntfile.js');
     this.template('gitignore',    '.gitignore');
     this.template('jshintrc',     '.jshintrc');
     this.template('bower.json',   'bower.json');
@@ -214,8 +225,8 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
       } catch(e) {}
     }.bind(this);
 
-    var parLoc      = path.join(this.props.web, 'wp-content/themes/evolution-parent-theme');
-    var childLoc    = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
+    var parLoc      = path.join(this.props.themesDir, 'evolution-parent-theme');
+    var childLoc    = path.join(this.props.themesDir, this.props.projShortName + '-theme');
     var writeChild  = !existing(childLoc) || this.props.writeChild;
 
     this.directory('themes/evolution-parent-theme', parLoc);
@@ -227,7 +238,7 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   cleanUp: function() {
     this.log.info('Cleaning up...');
 
-    var root  = path.join(this.props.web, 'wp-content/themes/', this.props.projShortName + '-theme');
+    var root  = path.join(this.props.themesDir, this.props.projShortName + '-theme');
     var files = this.expandFiles('**/.gitkeep', {dot: true, cwd: root});
 
     for (var i = 0; i < files.length; i++) {
