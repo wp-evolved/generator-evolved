@@ -141,7 +141,7 @@ module.exports = function(grunt) {
     colorguard: {
       options: {},
       files: {
-        src: ['<%= DEV_DIR %>/style.css']
+        src: ['<%%= DEV_DIR %>/style.css']
       }
     },
 
