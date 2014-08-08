@@ -12,6 +12,11 @@ And constructed with these guidelines:
 
 For more information on semantic versioning, please visit http://semver.org/.
 
+## v0.3.1 - August 8, 2014
+
+* Removed Genesis Skeleton from bower dependencies
+* Removed Genesis Skeleton dependencies from README
+
 ## v0.3.0 - August 1, 2014
 
 * Made the project agnostic to Genesis (checks for an existing themes dir or prompts the user to enter one)

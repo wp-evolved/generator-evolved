@@ -1,27 +1,39 @@
 # generator-genesis-evolution [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-genesis-evolution.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-genesis-evolution)
 
-> A Yeoman generator for [Genesis Skeleton - WordPress][1] themeing.
-Genesis Skeleton - Evolution is a simple pair of parent and child themes for use with Genesis Skeleton - WordPress.
+> A Yeoman generator for modern WordPress theme development.
+Genesis Skeleton - Evolution is a simple pair of parent and child themes to help you start and manage your theme development process.
 
 
 ## Features
 
-* [Yeoman][2] generator makes installation (or updating) on an existing Genesis Skeleton project simple.
-* Parent theme creates a unified base for all Genesis Skeleton projects without making too many design decisions.
+* [Yeoman][2] generator makes installation (or updating) the theme, dev utilities and task files simple.
+* Parent theme creates a unified base for all projects without making too many design decisions.
 * Child theme takes control of the project's specific design requirements utilizing [Bourbon][8] for Sass utilities, [Neat][9] for grid alignments and borrows from [Inuit CSS][10] for a solid base.
 * Utilizes [Bower][4] for easy dependency management.
-* Utilizes [Grunt][7] for an integrated CLI workflow with Genesis Skeleton.
+* Utilizes [Grunt][7] for an integrated CLI workflow.
 
 
 ## Installation
 
-### Start your project with Genesis Skeleton
+### Start your project
 
-Follow the [Genesis Skeleton - WordPress setup instructions](https://github.com/genesis/wordpress#genesis-wordpress) to get started.
+`cd` to your project root
+
+*The generator was originally created to work with [Genesis Skeleton - WordPress][1], but is no longer dependent on it. That said, Genesis Skeleton is a great tool to get your WordPress environments set up and automated. If you choose to use it, follow those [instructions](https://github.com/genesis/wordpress#genesis-wordpress) before running the Evolution generator.*
+
+### Node, NPM, Yeoman and Bower
+
+The theme generator depends on these tools for installation. To get started install Node and NPM from [nodejs.com](http://nodejs.org/). Then install Yeoman and Bower globally
+
+```
+npm install -g yo bower
+```
+
+*If using Genesis Skeleton - WP this should already be completed*
 
 ### Theme Generator and Grunt
 
-Install generator-genesis-evolution and Grunt CLI globally (you should already have Node, NPM, Yeoman, Bower and Genesis Skeleton - WordPress installed from the previous step)
+Install generator-genesis-evolution and Grunt CLI globally
 
 ```
 $ npm install -g generator-genesis-evolution grunt-cli
@@ -35,16 +47,13 @@ CD to your project and initiate the Gensis Evolution generator
 $ yo genesis-evolution
 ```
 
-It'll ask you a series of questions (many should already be pre-populated from the Genesis Skeleton setup).
+It'll ask you a series of questions to help you with installation.
 
 #### Install Notes
 
-When running the Evolution generator for the first time, it will overwrite the following files created by the Genesis Skeleton and warn you. This is expected.
+When running the theme generator, it may overwrite existing files that already exist. This is expected but be sure to use a diff tool to compare what was updated and keep what you need.
 
-* .gitignore
-* bower.json
-
-If you run the generator a second time (to keep up to date for instance) it will make updates to any of the included files that have been updated since the generator was last run. This is also expected, but **be sure to read the changelog before updating and to reply `NO` when asked to overwrite the child theme**. If you have any concerns or questions after the generator has finished, view your git diff.
+**Be sure to read the changelog before running the generator on a project that's been previously generated and reply `NO` when asked to overwrite the child theme or you will lose all your child theme changes**
 
 
 ## Getting Started
@@ -76,7 +85,7 @@ This installs the sass gem for sass compilation.
 
 ### Get started with Grunt
 
-Grunt isn't any more difficult to set up and use than Genesis Skeleton. If you're comfortable with Genesis Skeleton, you should be able to manage working with Grunt.
+Grunt is is a great automated build tool and we've set it up so that you can concentrate on building your theme instead of optimizing how it's delivered. 
 
 #### Main Tasks
 
@@ -146,12 +155,12 @@ Modules are small chunks of content used throughout the project. The goal is to 
 
 ### Styling
 
-Trick heading, there is none. There is a `style.css` file but it's only for recognizing the parent theme.
+Trick heading, there is none. There is a `style.css` file but it's only for recognizing the parent theme. All styling should be done in the child theme to avoid duplicate http requests and cascade issues.
 
 
 ## Working with the Child theme
 
-The goal of the child theme is to setup the project specific elements. This is where we'll include the design specific decisions (and utilize Grunt). Feel free to edit, add and remove as necessary.
+The goal of the child theme is to setup project specific elements. This is where we'll include the design specific decisions (and utilize Grunt). Feel free to edit, add and remove as necessary.
 
 ### Functions
 
@@ -165,7 +174,7 @@ Same as the templates and modules in the parent theme, this is where you want to
 
 #### Bourbon and Neat
 
-We use Bourbon/Neat for special functions, css3 mixins, and our grid. Bourbon has many awesome functions and mixins not in the Sass core that make working with scss even easier (such as tint/darken, px to em, modular scale, retina images, etc). Neat makes setting up and using a grid a breaze, especially when using the included media mixin. Instead of filling your markup with grid hooks, all of your grid layouts reside in your existing hooks where it belongs.
+We use Bourbon/Neat for special functions, css3 mixins, and our grid. Bourbon has many awesome functions and mixins not included in the Sass core that make working with scss even easier (such as tint/darken, px to em, modular scale, retina images, etc). Neat makes setting up and using a grid a breaze, especially when using the included media mixin. Instead of filling your markup with grid hooks, all of your grid layouts reside in your layout styles where it belongs.
 
 #### Base, Generic and Objects
 
@@ -181,7 +190,7 @@ To reduce http requests we limit our scripts to where they are needed and concat
 
 ### Images
 
-Due to the nature of images, we can't easily replace those that are uncompressed with those that are. Images should be placed in `assets/img/src` and you should link to the compressed images located in `assets/img/min` for all environments. We've found that the imagemin grunt plugin will continue to compress the images if you outright replace the original, so we've decided to separate the two to avoid any artifacting issues.
+The Imagemin Grunt task will automatically compress your images during the build process. Just drop in what you need in whatever folder structure you like and link to them as you normally would. No extra work needed.
 
 
 ## Version
