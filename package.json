@@ -1,25 +1,17 @@
 {
-  "name": "generator-genesis-evolution",
-  "version": "0.3.1",
-  "description": "A generator for Yeoman",
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "name": "generator-evolved",
+  "version": "0.4.0",
+  "description": "A Yeoman generator for modern WordPress theme development.",
+  "license": "MIT",
   "main": "app/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jimmynotjim/generator-genesis-evolution.git"
-  },
+  "repository": "wp-evolved/generator-evolved",
   "author": {
     "name": "Jimmy Wilson",
     "email": "jimmynotjim@me.com",
-    "url": "https://github.com/jimmynotjim"
+    "url": "https://github.com/wp-evolved"
   },
   "engines": {
-    "node": ">=0.10.0",
-    "npm": ">=1.2.10"
+    "node": ">=0.10.0"
   },
   "scripts": {
     "test": "mocha"
@@ -28,16 +20,21 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "wp-evolved",
+    "wp evolved",
+    "WordPress",
+    "WordPress theme",
+    "evolved"
   ],
   "dependencies": {
     "chalk": "~0.4.0",
     "fs-extra": "~0.8.1",
-    "yeoman-generator": "~0.16.0",
-    "glob": "^4.0.3"
+    "glob": "^4.0.3",
+    "yeoman-generator": "~0.16.0"
   },
   "devDependencies": {
-    "mocha": ">=1.18.0"
+    "mocha": "*"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"

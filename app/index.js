@@ -6,7 +6,7 @@ var fs      = require('fs-extra');
 var chalk   = require('chalk');
 var glob    = require('glob');
 
-var EvolutionGenerator = yeoman.generators.Base.extend({
+var EvolvedGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.prompts  = [];
     this.pkg      = require('../package.json');
@@ -204,11 +204,13 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   writeProjectFiles: function() {
     this.log.info('Writing project files...');
 
-    this.template('Gruntfile.js', 'Gruntfile.js');
-    this.template('gitignore',    '.gitignore');
-    this.template('jshintrc',     '.jshintrc');
-    this.template('bower.json',   'bower.json');
-    this.template('package.json', 'package.json');
+    this.template('_Gruntfile.js', 'Gruntfile.js');
+    this.template('_bower.json',   'bower.json');
+    this.template('_package.json', 'package.json');
+
+    this.copy('gitignore',    '.gitignore');
+    this.copy('jshintrc',     '.jshintrc');
+    this.copy('editorconfig', '.editorconfig');
   },
   writeThemeFiles:  function() {
     this.log.info('Writing theme files...');
@@ -225,14 +227,14 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
       } catch(e) {}
     }.bind(this);
 
-    var parLoc      = path.join(this.props.themesDir, 'evolution-parent-theme');
+    var parLoc      = path.join(this.props.themesDir, 'evolved-parent-theme');
     var childLoc    = path.join(this.props.themesDir, this.props.projShortName + '-theme');
     var writeChild  = !existing(childLoc) || this.props.writeChild;
 
-    this.directory('themes/evolution-parent-theme', parLoc);
+    this.directory('themes/evolved-parent-theme', parLoc);
 
     if (writeChild) {
-      this.directory('themes/evolution-child-theme', childLoc);
+      this.directory('themes/evolved-child-theme', childLoc);
     }
   },
   cleanUp: function() {
@@ -251,4 +253,4 @@ var EvolutionGenerator = yeoman.generators.Base.extend({
   }
 });
 
-module.exports = EvolutionGenerator;
+module.exports = EvolvedGenerator;

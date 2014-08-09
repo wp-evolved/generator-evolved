@@ -3,9 +3,9 @@
 
 var assert = require('assert');
 
-describe('theme generator', function () {
-    it('can be imported without blowing up', function () {
-        var app = require('../app');
-        assert(app !== undefined);
-    });
+describe('evolved generator', function () {
+  it('can be imported without blowing up', function () {
+    var app = require('../app');
+    assert(app !== undefined);
+  });
 });

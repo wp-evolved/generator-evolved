@@ -62,8 +62,8 @@ add_theme_support( 'menus' );
  * This theme uses wp_nav_menu() in two locations
  */
   register_nav_menus( array(
-    'primary'   => __( 'Top primary menu', 'evolution-parent' ),
-    'footer' => __( 'Footer menu', 'evolution-parent' ),
+    'primary' => __( 'Top primary menu', 'evolved-parent' ),
+    'footer'  => __( 'Footer menu', 'evolved-parent' ),
   ) );
 
 

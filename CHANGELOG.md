@@ -12,6 +12,12 @@ And constructed with these guidelines:
 
 For more information on semantic versioning, please visit http://semver.org/.
 
+## v0.4.0 - August 9, 2014
+
+* Renamened generator to generator-wp-evolved
+* Moved generator to the wp-evolved organization
+* Updated all files and docs for new location and name
+
 ## v0.3.1 - August 8, 2014
 
 * Removed Genesis Skeleton from bower dependencies

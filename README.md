@@ -1,62 +1,52 @@
-# generator-genesis-evolution [![Build Status](https://secure.travis-ci.org/jimmynotjim/generator-genesis-evolution.png?branch=master)](https://travis-ci.org/jimmynotjim/generator-genesis-evolution)
+# generator-evolved [![Build Status](https://secure.travis-ci.org/wp-evolved/generator-evolved.png?branch=master)](https://travis-ci.org/wp-evolved/generator-evolved)
 
-> A Yeoman generator for modern WordPress theme development.
-Genesis Skeleton - Evolution is a simple pair of parent and child themes to help you start and manage your theme development process.
+> A [Yeoman][2] generator for modern WordPress theme development.
 
+Evolved is a simple pair of parent and child themes to help you start and manage your WordPress theme development process.
 
 ## Features
 
-* [Yeoman][2] generator makes installation (or updating) the theme, dev utilities and task files simple.
+* Yeoman generator makes installation (or updating) your themes, dev utilities and task files simple.
 * Parent theme creates a unified base for all projects without making too many design decisions.
-* Child theme takes control of the project's specific design requirements utilizing [Bourbon][8] for Sass utilities, [Neat][9] for grid alignments and borrows from [Inuit CSS][10] for a solid base.
+* Child theme takes control of your project's specific design requirements utilizing [Bourbon][8] for Sass utilities, [Neat][9] for grid alignments and borrows from [Inuit CSS][10] for a solid base.
 * Utilizes [Bower][4] for easy dependency management.
-* Utilizes [Grunt][7] for an integrated CLI workflow.
-
+* Utilizes [Grunt][7] for an integrated CLI task building.
 
 ## Installation
 
-### Start your project
-
-`cd` to your project root
-
-*The generator was originally created to work with [Genesis Skeleton - WordPress][1], but is no longer dependent on it. That said, Genesis Skeleton is a great tool to get your WordPress environments set up and automated. If you choose to use it, follow those [instructions](https://github.com/genesis/wordpress#genesis-wordpress) before running the Evolution generator.*
+*The generator was originally created to work with [Genesis Skeleton - WordPress][1], but is no longer dependent on it. That said, Genesis Skeleton is a great tool to get your WordPress environments set up and automated. If you choose to use it, follow those [instructions](https://github.com/genesis/wordpress#genesis-wordpress) before running the Evolved generator.*
 
 ### Node, NPM, Yeoman and Bower
 
 The theme generator depends on these tools for installation. To get started install Node and NPM from [nodejs.com](http://nodejs.org/). Then install Yeoman and Bower globally
 
-```
+```bash
 npm install -g yo bower
 ```
 
-*If using Genesis Skeleton - WP this should already be completed*
+*If using Genesis Skeleton - WP this should already be completed for you*
 
 ### Theme Generator and Grunt
 
-Install generator-genesis-evolution and Grunt CLI globally
+Install Evolved and Grunt CLI globally
 
+```bash
+$ npm install -g generator-evolved grunt-cli
 ```
-$ npm install -g generator-genesis-evolution grunt-cli
-```
 
-**Note - v0.2.0 or later of the generator requires Sass 3.3 or later. Run `npm install -g generator-genesis-evolution@~0.1.*` if you're not up to date with Sass**
+CD to your project and start the Evolved generator
 
-CD to your project and initiate the Gensis Evolution generator
-
-```
-$ yo genesis-evolution
+```bash
+$ yo evolved
 ```
 
 It'll ask you a series of questions to help you with installation.
 
-#### Install Notes
+**Installation Notes**
 
-When running the theme generator, it may overwrite existing files that already exist. This is expected but be sure to use a diff tool to compare what was updated and keep what you need.
+When running the Evolved generator, it may overwrite existing files that already exist. This is expected but be sure to use a diff tool to compare what was updated and keep what you need.
 
-**Be sure to read the changelog before running the generator on a project that's been previously generated and reply `NO` when asked to overwrite the child theme or you will lose all your child theme changes**
-
-
-## Getting Started
+*Be sure to read the changelog before running the generator on a project that's been previously generated and reply `NO` when asked to overwrite the child theme or you will lose all your changes in the child theme*
 
 ### Install Dev Dependencies
 
@@ -83,7 +73,8 @@ sudo gem install sass
 
 This installs the sass gem for sass compilation.
 
-### Get started with Grunt
+
+## Getting Started
 
 Grunt is is a great automated build tool and we've set it up so that you can concentrate on building your theme instead of optimizing how it's delivered. 
 
@@ -118,14 +109,14 @@ This task builds our production assets concatonating and minifying all the neces
 Although `watch`, `build`, and `build:dev` should get you through 90% of your workflow there are other tasks (and subtasks) you can run in the current Grunt setup.
 
 ```
-grunt clean:dev		# Removes all files from the assets/dev dir
-grunt clean:dist	# Removes all files from the assets/dist dir
-grunt lint			# Lints all js files (including the Gruntfile) for errors
-grunt concat		# Concatonates all the separate scripts into header, footer and single source files
-grunt uglify		# Minifies the concatonated scripts in the assets/dist dir
-grunt sass:dist		# Compiles sass files (in expanded mode) to the assets/dev dir
-grunt sass:dev		# Compiles sass files (in compressed mode) to the assets/dist dir
-grunt imagemin		# Compresses images from /img/src directory to the /img/min directory
+grunt clean:dev   # Removes all files from the assets/dev dir
+grunt clean:dist  # Removes all files from the assets/dist dir
+grunt lint      # Lints all js files (including the Gruntfile) for errors
+grunt concat    # Concatonates all the separate scripts into header, footer and single source files
+grunt uglify    # Minifies the concatonated scripts in the assets/dist dir
+grunt sass:dist   # Compiles sass files (in expanded mode) to the assets/dev dir
+grunt sass:dev    # Compiles sass files (in compressed mode) to the assets/dist dir
+grunt imagemin    # Compresses images from /img/src directory to the /img/min directory
 grunt colorguard    # Compares your css files for colors that are too-similar and conflict with each other
 ```
 
@@ -200,14 +191,14 @@ This generator is currently considered unstable. Things will be moving while it 
 
 ## License
 
-[MIT License](http://en.wikipedia.org/wiki/MIT_License)
+[MIT License][5]
 
 [1]: https://github.com/genesis/wordpress/
 [2]: http://yeoman.io/
 [3]: http://nodejs.org/
 [4]: http://bower.io/
-[5]: https://help.github.com/articles/create-a-repo
-[6]: https://github.com/jimmynotjim/generator-genesis-evolution/blob/master/CHANGELOG.md
+[5]: http://en.wikipedia.org/wiki/MIT_License
+[6]: https://github.com/wp-evolved/generator-evolved/blob/master/CHANGELOG.md
 [7]: http://gruntjs.com/
 [8]: http://bourbon.io/
 [9]: http://neat.bourbon.io/
