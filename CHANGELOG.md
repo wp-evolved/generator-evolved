@@ -12,6 +12,10 @@ And constructed with these guidelines:
 
 For more information on semantic versioning, please visit http://semver.org/.
 
+## v0.4.2 - August 9, 2014
+
+* Fixed repository url, hopefully this fixes NPM install issue
+
 ## v0.4.1 - August 9, 2014
 
 * Fixing ver issue w/ NPM. No real changes
