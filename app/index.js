@@ -201,20 +201,10 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
     this.log.write('\n');
     this.log.info( chalk.green('Here we go!') );
   },
-  writeProjectFiles: function() {
-    this.log.info('Writing project files...');
+  cloneThemeFiles:  function() {
+    this.log.info('Copying theme files...');
 
-    this.template('_Gruntfile.js', 'Gruntfile.js');
-    this.template('_bower.json',   'bower.json');
-    this.template('_package.json', 'package.json');
-
-    this.copy('gitignore',    '.gitignore');
-    this.copy('jshintrc',     '.jshintrc');
-    this.copy('editorconfig', '.editorconfig');
-  },
-  writeThemeFiles:  function() {
-    this.log.info('Writing theme files...');
-
+    var done = this.async();
     var existing = function(location) {
       try {
         var style = this.readFileAsString(path.join(location, 'style.css'));
@@ -227,29 +217,37 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
       } catch(e) {}
     }.bind(this);
 
-    var parLoc      = path.join(this.props.themesDir, 'evolved-parent-theme');
-    var childLoc    = path.join(this.props.themesDir, this.props.projShortName + '-theme');
-    var writeChild  = !existing(childLoc) || this.props.writeChild;
+    var themesDir   = this.props.themesDir;
+    var childName   = this.props.projShortName + '-theme';
+    var parentDir   = path.join(themesDir, '/evolved-parent-theme')
+    var childDir    = path.join(themesDir, childName);
+    var writeChild  = !existing(childDir) || this.props.writeChild;
 
-    this.directory('themes/evolved-parent-theme', parLoc);
+    this.remote('wp-evolved', 'evolved-theme', 'master', function(err, remote) {
+      remote.directory('./themes/evolved-parent-theme', parentDir);
 
-    if (writeChild) {
-      this.directory('themes/evolved-child-theme', childLoc);
-    }
+      if (writeChild) {
+        remote.directory('./themes/evolved-child-theme', childDir);
+      }
+
+      done();
+    });
   },
-  cleanUp: function() {
-    this.log.info('Cleaning up...');
+  writeProjectFiles: function() {
+    this.log.info('Writing project files...');
 
-    var root  = path.join(this.props.themesDir, this.props.projShortName + '-theme');
-    var files = this.expandFiles('**/.gitkeep', {dot: true, cwd: root});
+    var themesDir   = this.props.themesDir;
+    var childName   = this.props.projShortName + '-theme';
+    var childDir    = path.join(themesDir, childName);
 
-    for (var i = 0; i < files.length; i++) {
-      var file = path.join(root, files[i]);
+    this.copy('_gitignore', '.gitignore');
+    this.copy('_editorconfig', '.editorconfig');
 
-      fs.remove(file, function(err) {
-        if (err) return this.log.info( chalk.red(err) );
-      });
-    }
+    this.copy('_jshintrc', '.jshintrc');
+
+    this.template('_Gruntfile.js', 'Gruntfile.js');
+    this.template('_bower.json', 'bower.json');
+    this.template('_package.json', 'package.json');
   }
 });
 
