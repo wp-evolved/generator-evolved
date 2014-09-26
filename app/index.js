@@ -201,7 +201,7 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
     this.log.write('\n');
     this.log.info( chalk.green('Here we go!') );
   },
-  cloneThemeFiles:  function() {
+  cloneThemeFiles: function() {
     this.log.info('Copying theme files...');
 
     var done = this.async();

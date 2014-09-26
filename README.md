@@ -4,7 +4,7 @@
 
 ## Features
 
-Auto installs (or updates) the Evolved for WordPress and all it's dev dependencies to quickly get you up and running.
+Auto installs (or updates) the Evolved for WordPress and all its dev dependencies to quickly get you up and running.
 
 ## Installation
 
