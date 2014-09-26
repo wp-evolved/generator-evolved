@@ -1,6 +1,6 @@
 {
   "name": "generator-evolved",
-  "version": "0.4.4",
+  "version": "1.0.0",
   "description": "A Yeoman generator for modern WordPress theme development.",
   "license": "MIT",
   "main": "app/index.js",

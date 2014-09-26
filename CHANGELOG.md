@@ -12,6 +12,12 @@ And constructed with these guidelines:
 
 For more information on semantic versioning, please visit http://semver.org/.
 
+## v1.0.0 - September 26, 2014
+
+* Updated installer to remotely copy theme files from main [Evolved Theme](https://github.com/wp-evolved/evolved-theme) project
+* Updated Gruntfile to match updates in Evolved Theme
+* Updated instructions in Readme to match new setup
+
 ## v0.4.4 - August 9, 2014
 
 * Removed duplicate bower template
