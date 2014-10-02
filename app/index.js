@@ -9,11 +9,11 @@ var latest  = require('github-latest');
 var request = require('request');
 
 var EvolvedGenerator = yeoman.generators.Base.extend({
-  init: function () {
+  init: function() {
     this.prompts  = [];
     this.pkg      = require('../package.json');
 
-    this.on('end', function () {
+    this.on('end', function() {
       this.config.save();
       this.log.info('Running ' + chalk.yellow('bower install') + ' & ' + chalk.yellow('npm install') + ' for you to install the required dependencies. If this fails, try running the command yourself.');
       if (!this.options['skip-install']) {
@@ -41,12 +41,12 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
     }
   },
   verifyBranch: function() {
-    if ( this.branch ) {
+    if (this.branch) {
       var done  = this.async();
       var url   = 'http://github.com/wp-evolved/evolved-theme/archive/' + this.branch + '.tar.gz';
 
       request(url, function(err, resp, body) {
-        if ( err || resp.statusCode !== 200 ) {
+        if (err || resp.statusCode !== 200) {
           var err = chalk.yellow(this.branch) + chalk.red(' is not an existing remote endpoint') + '\n';
 
           throw err;
@@ -93,9 +93,9 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
         var ext       = path.extname(this.env.cwd);
         var extname   = ext.replace('.','');
         var base      = path.basename(this.env.cwd).replace(ext, '');
-        var basename  = ( /[A-Z]/.test(base) ) ? base.replace(/[^A-Z]/g, '') : base.charAt(0);
+        var basename  = (/[A-Z]/.test(base)) ? base.replace(/[^A-Z]/g, '') : base.charAt(0);
 
-        return existing() || ( basename + extname ).toLowerCase();
+        return existing() || (basename + extname).toLowerCase();
       }.bind(this)
     });
   },
@@ -229,7 +229,7 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
   },
   ready: function() {
     this.log.write('\n');
-    this.log.info( chalk.green('Here we go!') );
+    this.log.info(chalk.green('Here we go!'));
   },
   getBranch: function() {
     if (this.branch) {
