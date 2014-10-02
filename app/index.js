@@ -5,6 +5,8 @@ var yeoman  = require('yeoman-generator');
 var fs      = require('fs-extra');
 var chalk   = require('chalk');
 var glob    = require('glob');
+var latest  = require('github-latest');
+var request = require('request');
 
 var EvolvedGenerator = yeoman.generators.Base.extend({
   init: function () {
@@ -25,6 +27,34 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
         });
       }
     });
+  },
+  setBranch: function() {
+    if (this.args.length) {
+      var i = 0;
+      var l = this.args.length;
+
+      for(i; i < l; i++) {
+        if (this.args[i].indexOf('@') === 0) {
+          this.branch = this.args[i].slice(1);
+        }
+      }
+    }
+  },
+  verifyBranch: function() {
+    if ( this.branch ) {
+      var done  = this.async();
+      var url   = 'http://github.com/wp-evolved/evolved-theme/archive/' + this.branch + '.tar.gz';
+
+      request(url, function(err, resp, body) {
+        if ( err || resp.statusCode !== 200 ) {
+          var err = chalk.yellow(this.branch) + chalk.red(' is not an existing remote endpoint') + '\n';
+
+          throw err;
+        } else {
+          done();
+        }
+      }.bind(this));
+    }
   },
   promptForName: function() {
     var existing = function() {
@@ -201,8 +231,20 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
     this.log.write('\n');
     this.log.info( chalk.green('Here we go!') );
   },
+  getBranch: function() {
+    if (this.branch) {
+      return false;
+    }
+
+    var done = this.async();
+
+    latest('wp-evolved', 'evolved-theme', function(err, tag) {
+      this.branch = tag || 'master';
+      done();
+    }.bind(this));
+  },
   cloneThemeFiles: function() {
-    this.log.info('Copying theme files...');
+    this.log.info('Copying theme files from ' + chalk.cyan('evolved-theme ') + chalk.yellow('@' + this.branch));
 
     var done = this.async();
     var existing = function(location) {
@@ -223,7 +265,7 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
     var childDir    = path.join(themesDir, childName);
     var writeChild  = !existing(childDir) || this.props.writeChild;
 
-    this.remote('wp-evolved', 'evolved-theme', 'master', function(err, remote) {
+    this.remote('wp-evolved', 'evolved-theme', this.branch, function(err, remote) {
       remote.directory('./themes/evolved-parent-theme', parentDir);
 
       if (writeChild) {
@@ -236,13 +278,8 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
   writeProjectFiles: function() {
     this.log.info('Writing project files...');
 
-    var themesDir   = this.props.themesDir;
-    var childName   = this.props.projShortName + '-theme';
-    var childDir    = path.join(themesDir, childName);
-
     this.copy('_gitignore', '.gitignore');
     this.copy('_editorconfig', '.editorconfig');
-
     this.copy('_jshintrc', '.jshintrc');
 
     this.template('_Gruntfile.js', 'Gruntfile.js');

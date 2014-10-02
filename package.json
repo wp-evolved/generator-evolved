@@ -30,7 +30,9 @@
   "dependencies": {
     "chalk": "~0.4.0",
     "fs-extra": "~0.8.1",
+    "github-latest": "^0.1.2",
     "glob": "^4.0.3",
+    "request": "^2.44.0",
     "yeoman-generator": "~0.16.0"
   },
   "devDependencies": {
