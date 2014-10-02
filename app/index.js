@@ -8,6 +8,9 @@ var glob    = require('glob');
 var latest  = require('github-latest');
 var request = require('request');
 
+var user_name   = 'wp-evolved';
+var theme_repo  = 'evolved-theme';
+
 var EvolvedGenerator = yeoman.generators.Base.extend({
   init: function() {
     this.prompts  = [];
@@ -43,7 +46,7 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
   verifyBranch: function() {
     if (this.branch) {
       var done  = this.async();
-      var url   = 'http://github.com/wp-evolved/evolved-theme/archive/' + this.branch + '.tar.gz';
+      var url   = 'http://github.com/' + [user_name, theme_repo, 'archive', this.branch].join('/') + '.tar.gz';
 
       request(url, function(err, resp, body) {
         if (err || resp.statusCode !== 200) {
@@ -238,13 +241,13 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
 
     var done = this.async();
 
-    latest('wp-evolved', 'evolved-theme', function(err, tag) {
+    latest(user_name, theme_repo, function(err, tag) {
       this.branch = tag || 'master';
       done();
     }.bind(this));
   },
   cloneThemeFiles: function() {
-    this.log.info('Copying theme files from ' + chalk.cyan('evolved-theme ') + chalk.yellow('@' + this.branch));
+    this.log.info('Copying theme files from ' + chalk.cyan(theme_repo) + ' ' + chalk.yellow('@' + this.branch));
 
     var done = this.async();
     var existing = function(location) {
@@ -265,7 +268,7 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
     var childDir    = path.join(themesDir, childName);
     var writeChild  = !existing(childDir) || this.props.writeChild;
 
-    this.remote('wp-evolved', 'evolved-theme', this.branch, function(err, remote) {
+    this.remote(user_name, theme_repo, this.branch, function(err, remote) {
       remote.directory('./themes/evolved-parent-theme', parentDir);
 
       if (writeChild) {
