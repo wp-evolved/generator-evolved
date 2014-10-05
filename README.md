@@ -34,6 +34,18 @@ The installer will ask you a series of questions to help customize your installa
 
 **When updating an existing project, be sure to read the changelog before running the generator to see what's changed and reply `NO` when asked to overwrite the existing child theme or you may lose all your changes in the child theme**
 
+
+### Options
+
+By default the Evolved generator will install the latest release of the Evolved Theme. If you are looking for an older version, a specific branch or even a commit, you can pass those as an argument prefixed with `@`.
+
+```bash
+$ yo evolved @fix-display-thumbnails // Installs the themes from the fix-display-thumbnails branch
+$ yo evolved @v1.0.0 // Installs the themes from version 1.0.0
+$ yo evolved @157389b // Installs the themes from commit 157389b
+```
+
+
 ### Install Dev Dependencies
 
 The Node and Bower dependencies should be automatically installed, but if they fail run:
