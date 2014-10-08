@@ -307,11 +307,9 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
     this.template('_bower.json', 'bower.json');
 
     if (gulpProject) {
-      console.log('gulp files');
       this.template('gulp/_gulpfile.js', 'gulpfile.js');
       this.template('gulp/_package.json', 'package.json');
     } else {
-      console.log('grunt files');
       this.template('grunt/_Gruntfile.js', 'Gruntfile.js');
       this.template('grunt/_package.json', 'package.json');
     }
