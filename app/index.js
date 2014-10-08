@@ -174,6 +174,24 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
       }.bind(this)
     });
   },
+  promptForGulp: function() {
+    this.prompts.push({
+      required: true,
+      type:     'list',
+      name:     'buildToolChoice',
+      message:  'Which build tool do you prefer?',
+      choices:  [
+        {
+          name: 'Gulp',
+          value: 'gulp'
+        },
+        {
+          name: 'Grunt',
+          value: 'grunt'
+        }
+      ]
+    });
+  },
   searchForThemesDir: function() {
     var props = this.props = [];
 
@@ -279,15 +297,24 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
     });
   },
   writeProjectFiles: function() {
+    var gulpProject = this.props.buildToolChoice === 'gulp';
     this.log.info('Writing project files...');
 
     this.copy('_gitignore', '.gitignore');
     this.copy('_editorconfig', '.editorconfig');
     this.copy('_jshintrc', '.jshintrc');
 
-    this.template('_Gruntfile.js', 'Gruntfile.js');
     this.template('_bower.json', 'bower.json');
-    this.template('_package.json', 'package.json');
+
+    if (gulpProject) {
+      console.log('gulp files');
+      this.template('gulp/_gulpfile.js', 'gulpfile.js');
+      this.template('gulp/_package.json', 'package.json');
+    } else {
+      console.log('grunt files');
+      this.template('grunt/_Gruntfile.js', 'Gruntfile.js');
+      this.template('grunt/_package.json', 'package.json');
+    }
   }
 });
 

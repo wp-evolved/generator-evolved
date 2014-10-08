@@ -117,7 +117,7 @@ module.exports = function (grunt) {
         src:  '<%%= SRC_DIR %>/scss/style.scss',
         dest: '<%%= DIST_DIR %>/style.min.css'
       },
-      dev : {
+      dev: {
         options: {
           style:        'expanded',
           lineNumbers:  true
