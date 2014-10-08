@@ -179,7 +179,7 @@ gulp.task('build:dev', [
 gulp.task('watch', function() {
   $.livereload.listen();
 
-  gulp.watch(_src_dir + '/scss/**/*', ['build:dev']);
+  gulp.watch(_src_dir + '/scss/**/*', ['sass:dev']);
   gulp.watch(_src_dir + '/js/**/*', [
     'lint:src',
     'scripts:dev'
