@@ -182,12 +182,12 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
       message:  'Which build tool do you prefer?',
       choices:  [
         {
-          name: 'Gulp',
-          value: 'gulp'
-        },
-        {
           name: 'Grunt',
           value: 'grunt'
+        },
+        {
+          name: 'Gulp',
+          value: 'gulp'
         }
       ]
     });
