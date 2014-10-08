@@ -5,9 +5,10 @@ var del   = require('del');
 var $     = require('gulp-load-plugins')();
 var pkg   = require('./package.json');
 
+var _short_name   = '<%%= pkg.shortName.toLowerCase() %>',
 var _bower_dir    = 'bower_components';
 var _theme_dir    = '<%= props.themesDir %>';
-var _child_dir    = _theme_dir + '/tscom-theme';
+var _child_dir    = _theme_dir + '/' + _short_name;
 var _assets_dir   = _child_dir + '/assets';
 var _src_dir      = _assets_dir + '/src';
 var _dist_dir     = _assets_dir + '/dist';
