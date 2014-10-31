@@ -5,16 +5,16 @@ var del   = require('del');
 var $     = require('gulp-load-plugins')();
 var pkg   = require('./package.json');
 
-var _short_name   = '<%%= pkg.shortName.toLowerCase() %>',
+var _short_name   = pkg.shortName.toLowerCase();
 var _bower_dir    = 'bower_components';
 var _theme_dir    = '<%= props.themesDir %>';
-var _child_dir    = _theme_dir + '/' + _short_name;
+var _child_dir    = _theme_dir + '/' + _short_name + '-theme';
 var _assets_dir   = _child_dir + '/assets';
 var _src_dir      = _assets_dir + '/src';
 var _dist_dir     = _assets_dir + '/dist';
 var _dev_dir      = _assets_dir + '/dev';
 var _img_dir      = _assets_dir + '/img';
-var _banner       = '/*! <%%= pkg.title || pkg.name %> - v<%%= pkg.version %> - <%%= (new Date).toDateString() %> */\n';
+var _banner       = '/*!' + (pkg.title || pkg.name) + ' - v' + pkg.version + ' - ' + (new Date()).toDateString() + '*/\n';
 var _clrgrd_opts  = {
   whitelist: [
     ['#fff', '#fefefe']
