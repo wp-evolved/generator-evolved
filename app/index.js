@@ -195,13 +195,10 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
   searchForThemesDir: function() {
     var props = this.props = [];
 
-    glob.sync('**/wp-content/themes', function(err, matches) {
-      if (err) throw err;
-
-      if (matches.length) {
-        props.themesDir = matches[0];
-      }
-    });
+    var matches = glob.sync('**/wp-content/themes');
+    if (matches.length) {
+      props.themesDir = matches[0];
+    }
   },
   promptForThemesDir: function() {
     this.prompts.push({
@@ -265,12 +262,12 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
     }.bind(this));
   },
   cloneThemeFiles: function() {
-    this.log.info('Copying theme files from ' + chalk.cyan(theme_repo) + ' ' + chalk.yellow('@' + this.branch));
+    this.log.info( 'Copying theme files from ' + chalk.cyan(theme_repo) + ' ' + chalk.yellow('@' + this.branch) );
 
     var done = this.async();
     var existing = function(location) {
       try {
-        var style = this.readFileAsString(path.join(location, 'style.css'));
+        var style = this.readFileAsString( path.join(location, 'style.css') );
 
         if (style.length) {
           return true;
