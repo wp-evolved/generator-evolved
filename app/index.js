@@ -25,7 +25,11 @@ var EvolvedGenerator = yeoman.generators.Base.extend({
           npm:          true,
           skipMessage:  true,
           callback:     function() {
-            this.log.ok('All done! Run ' + chalk.yellow('grunt build:dev') + ' and ' + chalk.yellow('grunt watch') + ' to get started!');
+            var isGulp        = this.props.buildToolChoice === 'gulp';
+            var devMessage    = ( isGulp ) ? 'gulp build --dev' : 'grunt build:dev';
+            var watchMessage  = ( isGulp ) ? 'gulp watch --dev' : 'grunt watch';
+
+            this.log.ok('All done! Run ' + chalk.yellow(devMessage) + ' and ' + chalk.yellow(watchMessage) + ' to get started!');
           }.bind(this)
         });
       }
