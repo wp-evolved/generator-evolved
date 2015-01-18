@@ -12,6 +12,13 @@ And constructed with these guidelines:
 
 For more information on semantic versioning, please visit http://semver.org/.
 
+## v1.2.0 - January 18, 2015
+- Split up build tool resources in /root dir
+- Added gulpfile
+- Added package.json specific to Gulp dependencies
+- Added prompt to allow user to choose between Gulp and Grunt (defaulting to Grunt)
+- Updated readme with Gulp info
+
 ## v1.1.0 - October 5, 2014
 
 * Added argument checker for @ key
