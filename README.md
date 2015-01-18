@@ -12,12 +12,33 @@ Auto installs (or updates) the Evolved for WordPress and all its dev dependencie
 
 The generator and Evolved depend on multiple Node tools for installation. To get started install Node and NPM from [nodejs.org][5].
 
-## [Yeoman][6], [Bower][7], [Grunt][8] and Evolved Generator
+## [Yeoman][6] and [Bower][7]
 
 You'll need these Node tools installed *globally* to setup and build your project's files
 
 ```bash
-npm install -g yo bower grunt-cli generator-evolved
+npm install -g yo bower
+```
+
+## [Grunt][8] or Gulp[9] 
+
+Evolved was originally built to utilize Grunt as it's build tool. Since that time, Gulp has become better supported. We prefer Gulp for it's ability to process tasks without writing files to disk, but we will continue to support both as long as interest remains.
+
+```bash
+npm install -g grunt-cli
+```
+
+**or **
+
+```bash
+npm install -g gulp
+```
+
+
+## Evolved Generator
+
+```bash
+npm install -g generator-evolved
 ```
 
 CD to your project and start the Evolved generator
@@ -54,13 +75,13 @@ The Node and Bower dependencies should be automatically installed, but if they f
 npm install
 ```
 
-This will install Grunt and all of the Grunt plugins needed for concatonation, minification, image compression, js and sass compilation, and the necessary components for live reload (these are declared in package.json).
+This will install your build tool and all of it's plugins needed for concatonation, minification, image compression, js and sass compilation, and the necessary components for live reload (these are declared in package.json).
 
 ```
 bower install
 ```
 
-This will install your theme dependencies like js libraries, [Bourbon][9], and [Neat][10] (these are declared in bower.json).
+This will install your theme dependencies like js libraries, [Bourbon][10], and [Neat][11] (these are declared in bower.json).
 
 
 ### Install Sass
@@ -95,5 +116,6 @@ This project is stable but continuously under development. Be sure to read [the 
 [6]: http://yeoman.io/
 [7]: http://bower.io/
 [8]: http://gruntjs.com/
-[9]: http://bourbon.io/
-[10]: http://neat.bourbon.io/
+[9]: http://gulpjs.com/
+[10]: http://bourbon.io/
+[11]: http://neat.bourbon.io/
