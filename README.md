@@ -20,7 +20,7 @@ You'll need these Node tools installed *globally* to setup and build your projec
 npm install -g yo bower
 ```
 
-## [Grunt][8] or Gulp[9] 
+## [Grunt][8] or [Gulp][9]
 
 Evolved was originally built to utilize Grunt as it's build tool. Since that time, Gulp has become better supported. We prefer Gulp for it's ability to process tasks without writing files to disk, but we will continue to support both as long as interest remains.
 
